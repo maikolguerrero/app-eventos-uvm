@@ -11,12 +11,21 @@ const ObjectConnection = {
     database : mysql_data.mysql.database
 }
 
-//Realizamos la conexión pasandole el objeto de conexión
-const myConn = mysql.createConnection(ObjectConnection)
-
-if(myConn) {
-    console.log("La base de datos ah sido conectatda exitosamente")
-}
+let myConn;
+try {
+    //Realizamos la conexión pasandole el objeto de conexión
+    myConn = mysql.createConnection(ObjectConnection);
+  
+    myConn.connect((error) => {
+      if (error) {
+        console.log(`Error al conectar con la base de datos: ${error.message}`);
+      } else {
+        console.log("La base de datos ha sido conectada exitosamente");
+      }
+    });
+  } catch (error) {
+    console.log(`Ha ocurrido un error al crear la conexión: ${error.message}`);
+  }
 
 //Exportamos la conexión
 module.exports = myConn

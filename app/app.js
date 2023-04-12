@@ -18,6 +18,12 @@ app.use(json())
 
 // Configuración de las rutas 
 app.use('/eventos', require('./routes/eventos.routes'))
+app.use('/usuarios', require('./routes/usuarios.routes'))
+
+// Middleware para manejar rutas no encontradas y devolver error 404
+app.use((req, res, next) => {
+    res.status(404).json({ status: 404, message: "La ruta que buscas no existe" });
+  });
 
 // Definición de los archivos estáticos (donde se van a subir las imágenes) 
 app.use(express.static(path.join(__dirname, '../static')))
