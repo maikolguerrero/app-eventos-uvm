@@ -543,8 +543,6 @@ header{
     justify-content: center;
     align-items: center;
     padding-top: 4%;
-
-
 }
 
 .publicar_bot{
@@ -556,3 +554,48 @@ header{
     border: none;
     width: 50%;
 }
+
+
+
+
+
+
+/*  */
+#menu {
+    display: none;
+    position: absolute;
+    top: 75px;
+    left: 92%;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    background-color: #88C426;
+    border-radius: 20px;
+  }
+  
+  #boton-menu {
+    cursor: pointer;
+  }
+  
+  #boton-menu:hover {
+    background-color: #999;
+  }
+  
+  #menu li {
+    display: block;
+    margin: 10px 0;
+  }
+  
+  #menu li a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  #menu li a:hover {
+    color: #666;
+  }
+
+  .desplegable{
+    display: flex;
+    padding-top: 500px;
+  }
