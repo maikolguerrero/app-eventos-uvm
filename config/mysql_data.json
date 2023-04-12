@@ -4,6 +4,6 @@
         "port": 3306,
         "user": "root",
         "pass": "",
-        "database": "bd_prueba"
+        "database": "app_eventos_universidad"
     }
 }
