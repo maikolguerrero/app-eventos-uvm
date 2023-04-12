@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="crear-evento.css">
+</head>
+<body>
+    <!-- Cramos la cabecera donde estara el logo de la universidad y el menu -->
+    <header>
+        <img src="img-crear-evento/Logo agosto 2022 sin fondo.png" alt="Logo de la UVM" class="logo">
+        <div class="menu">
+            <button class="boton_menu">lll</button> 
+        </div>
+    </header>
+    <!-- Ceamos el titulo de la pagina la cual es la de crear un nuevo evento -->
+    <section class="nuevo_evento">
+        <h1 class="nuevo_evento_texto">Nuevo evento</h1>
+    </section>
+    <!-- Creamos el bloque donde estara todo el formulario para la creacion de nuevos eventos y colocamos el texto explicativo -->
+    <section class="agregarnv">
+        <section class="agregarnv_ex">Introduce toda la información necesaria para publicar un nuevo evento.</section>
+        <!-- Creamos las primeras tres preguntas del formulario donde podemos colocar las respuestas para porterior mente enviarla a la base de datos -->
+        <section class="agregarnv_pr">
+            
+            <div class="pr1">
+                <form action="" class="agregarnv_pr_form">
+                    <input class="agregarnv_pr_form_in" type="text" placeholder="" required>
+
+                    <label class="agregarnv_pr_form_la">
+                        <span class="agregarnv_pr_form_s">Nombre Completo</span>
+                    </label>
+                </form>
+            </div>
+
+            <div class="pr2">
+                <form action="" class="agregarnv_pr_form">
+                    <input class="agregarnv_pr_form_in" type="text" placeholder="" required>
+
+                    <label class="agregarnv_pr_form_la">
+                        <span class="agregarnv_pr_form_s">Titulo del Evento</span>
+                    </label>
+                </form>
+            </div>
+
+            <div class="pr3">
+                <form action="" class="agregarnv_pr_form">
+                    <input class="agregarnv_pr_form_in" type="text" placeholder="" required>
+
+                    <label class="agregarnv_pr_form_la">
+                        <span class="agregarnv_pr_form_s">Lugar</span>
+                    </label>
+                </form>
+            </div>
+        </section>
+
+        <!-- Cramos la parte donde se colocara la fecha del evento -->
+
+        <section class="fecha">
+            <h3>Fecha</h3>
+            
+            <div class="fecha1">
+                <form class="fecha_fo" action="">
+                    <input class="fecha_fo_in" type="text" required>
+                </form>
+            </div>
+            
+            <div class="fecha2">
+                <form class="fecha_fo" action="">
+                    <input class="fecha_fo_in" type="text" required>
+                </form>
+            </div>
+            
+            <div class="fecha3">
+                <form class="fecha_fo" action="">
+                    <input class="fecha_fo_in" type="text" required>
+                </form>
+            </div>
+        </section>
+
+        <!-- Creamos la parte donde colocaremos el tipo de evento -->
+        <section class="tipo">
+            <h3>Tipo</h3>
+            <div class="tipo1">
+                <form class="tipo_fo" action="">
+                    <input class="tipo_fo_in" type="text">
+                </form>
+            </div>
+        </section>
+        <!-- Creamos la parte donde colocaremos la fecha del evento -->
+        <section class="numero_asientos">
+            <h3>Número de asientos</h3>
+            <div class="numero_asientos1">
+                <form class="numero_asientos_fo" action="">
+                    <input class="numero_asientos_fo_in" type="text">
+                </form>
+            </div>
+        </section>
+        <!-- Creamos la parte donde colocaremos la cantidad de boletos -->
+        <section class="boletos_dis">
+            <h3>Boletos disponibles</h3>
+            <div class="boletos_dis1">
+                <form class="boletos_dis_fo" action="">
+                    <input class="boletos_dis_fo_in" type="text">
+                </form>
+            </div>
+        </section>
+        <!-- Creamos la parte donde colocaremos el mensaje de la descripcion del evento -->
+        <section class="des">
+            <div class="des1">
+                <form class="des_fo" action="">
+                    <input class="des_fo_in" type="text" placeholder="  Descripción">
+                </form>
+            </div>
+        </section>
+        <!-- Creamos la parte donde colocaremos la edad de las personas que pueden asistir a el evento -->
+        <section class="edad">
+            <form action="">
+                <label for="Solo-mayores-de-edad">
+                    <input  type="checkbox" id="Solo-mayores-de-edad" value="" name="">Solo mayores de edad
+                </label>
+            </form>
+
+            <form action="">
+                <label for="Rango-de-edad-personalizado">
+                    <input  type="checkbox" id="Rango-de-edad-personalizado" value="" name="">Rango de edad personalizado
+                </label>
+            </form>
+        </section>
+
+        <section class="edades">
+            <h3>Entre</h3>
+            
+            <div class="edad1">
+                <form class="edades_fo" action="">
+                    <input class="edades_fo_in" type="text" required>
+                </form>
+            </div>
+            <h3>y</h3>
+            <div class="edad2">
+                <form class="edades_fo" action="">
+                    <input class="edades_fo_in" type="text" required>
+                </form>
+            </div>
+        </section>
+        <!-- Creamos la parte donde podremos enviar una imagen de como seria nuestro evento -->
+        <section class="intro_img">
+            <h3>Introduce una imagen representativa</h3>
+        </section>
+        <!-- Creamos un boton donde podremos exportar la imagen -->
+        <section class="in_img">
+            <div class="in-img1">
+                <form class="in_img_fo" action="">
+                    <input class="in_img_fo_in" type="text" placeholder="  URL de la imagen">
+                </form>
+            </div>
+        </section>
+
+        <section class="bot_expor">
+            <button class="bot_expor_bot"><h3>Exportar imagen</h3></button>
+        </section>
+        <!-- Creamos un boton para subir el evento --> 
+        <section class="publicar">
+            <button class="publicar_bot"><h3>Publicar</h3></button>
+        </section>
+    </section>
+    
+</body>
+</html>

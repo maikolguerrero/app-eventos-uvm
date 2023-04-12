@@ -1,0 +1,558 @@
+/* Diseños generales */
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+/* Diseño de la bacera */
+
+header{
+    width: 100%;
+    height: 100px;
+    background-color: #88C426;
+}
+
+/* Diseño del menu hubicado en la becera */
+
+.menu {
+    padding-top: 1.5%;
+}
+
+.boton_menu {
+    width: 3%;
+    height: 5%;
+    background: none;
+    border-radius: 10% 10%;
+    /* display: none;*/
+    position: absolute;
+    right: 1%; 
+    color: white;
+    font-size: 30px;
+}
+
+/* Diseño del logo hubicado en la cabecera */
+
+.logo {
+    width: 7%;
+    height: 100%;
+    float: left;
+    padding-left: 1%;
+    padding-top: 0.5%;
+    padding-bottom: 0.5%;
+    box-sizing: border-box;
+}
+
+/* Diseño del texto de nuevo evento */
+
+.nuevo_evento {
+    padding-top: 2%;
+    padding-left: 10%;
+}
+
+.nuevo_evento_texto {
+    /* border: solid 1px #7FFF00; */
+    border-radius: 15px ;
+    background-color: #88C426;
+    width: 12%;
+    height: 20%;
+    color: white;
+    text-align: center;
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
+
+/* Diseño de la caja que contendra el formulario */
+
+.agregarnv {
+    border: solid 3px #1D555B;
+    width: 90%;
+    height: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 15px;
+    padding: 1%;
+}
+
+/* Diseño del texto de explicacion del formulario */
+
+.agregarnv_ex {
+    text-align: center;
+}
+
+/* Diseños de las primeras 3 preguntas */
+
+.agregarnv_pr {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    padding-top: 5%;
+    align-items: center;
+    padding: 5%;
+}
+/*  */
+.agregarnv_pr_form{
+    width: 100%;
+    height: 50px;
+    position: relative;
+    overflow: hidden;
+}
+.agregarnv_pr_form .agregarnv_pr_form_in{
+    width: 100%;
+    height: 100%;
+    background: #D3D3D3;
+    color: black;
+    /* padding-top: 20px; */
+    border: none;
+    outline: 0px;
+    border-radius: 15px 15px;
+}
+.agregarnv_pr_form .agregarnv_pr_form_la{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    border-bottom: 1px solid #c7c7c7;
+}
+.agregarnv_pr_form .agregarnv_pr_form_la:after{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    width: 100%;
+    height: 100%;
+    border-bottom: 3px solid #2ecece;
+    transform: translateX(-100%);
+    transition: all 0.3s ease;
+}
+.agregarnv_pr_form_s{
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    transition: all 0.3s ease;
+    color: black;
+    padding-left: 1%;
+}
+.agregarnv_pr_form .agregarnv_pr_form_in:focus + .agregarnv_pr_form_la .agregarnv_pr_form_s,.agregarnv_pr_form .agregarnv_pr_form_in:valid + .agregarnv_pr_form_la .agregarnv_pr_form_s{
+    transform: translateY(-150%);
+    font-size: 14px;
+    color: #2ecece;
+}
+.agregarnv_pr_form .agregarnv_pr_form_in:focus + .agregarnv_pr_form_la:after, .agregarnv_pr_form .agregarnv_pr_form_in:valid + .agregarnv_pr_form_la:after{
+    transform: translateX(0%);
+}
+
+.pr1{
+    padding-bottom: 1%;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.pr2{
+    padding-bottom: 1%;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.pr3{
+    padding-bottom: 1%;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Diseñamos la parte de las fechas */
+
+.fecha{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.fecha_fo{
+    width: 100%;
+    height: 50px;
+    max-width: 400px;
+    position: relative;
+    overflow: hidden;
+}
+.fecha_fo .fecha_fo_in{
+    width: 100%;
+    height: 100%;
+    background: #D3D3D3;
+    border-radius: 15px;
+    color: #fff;
+    /* padding-top: 20px; */
+    border: none;
+    outline: 0px;
+}
+
+.fecha_fo .fecha_fo_in:focus ,.fecha_fo .fecha_fo_in:valid{
+    transform: translateY(-150%);
+    font-size: 14px;
+    color: black;
+}
+.fecha_fo .fecha_fo_in:focus, .fecha_fo .fecha_fo_in:valid{
+    transform: translateX(0%);
+}
+
+.fecha1{
+    width: 5%;
+    height: 4%;
+    padding-left: 1%;
+    padding-right: 2%;
+}
+
+.fecha2{
+    width: 5%;
+    height: 4%;
+    padding-right: 2%;
+}
+
+.fecha3{
+    width: 7%;
+    height: 4%;
+}
+
+/* Diseñamos la parte de tipo */
+
+.tipo{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding-top: 4%;
+}
+
+.tipo_fo{
+    width: 100%;
+    height: 50px;
+    max-width: 400px;
+    position: relative;
+    overflow: hidden;
+}
+.tipo_fo .tipo_fo_in{
+    width: 100%;
+    height: 100%;
+    background: #D3D3D3;
+    border-radius: 15px;
+    color: #fff;
+    /* padding-top: 20px; */
+    border: none;
+    outline: 0px;
+}
+
+.tipo_fo .tipo_fo_in:focus ,.tipo_fo .tipo_fo_in:valid{
+    transform: translateY(-150%);
+    font-size: 14px;
+    color: black;
+}
+.tipo_fo .tipo_fo_in:focus, .tipo_fo .tipo_fo_in:valid{
+    transform: translateX(0%);
+}
+
+.tipo1{
+    width: 9%;
+    height: 4%;
+    padding-left: 1%;
+}
+
+/* Diseñamos la parte del numero de asientos */
+
+.numero_asientos{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding-top: 4%;
+}
+
+.numero_asientos_fo{
+    width: 100%;
+    height: 50px;
+    max-width: 400px;
+    position: relative;
+    overflow: hidden;
+}
+.numero_asientos_fo .numero_asientos_fo_in{
+    width: 100%;
+    height: 100%;
+    background: #D3D3D3;
+    border-radius: 15px;
+    color: #fff;
+    /* padding-top: 20px; */
+    border: none;
+    outline: 0px;
+}
+
+.numero_asientos_fo .numero_asientos_fo_in:focus ,.numero_asientos_fo .numero_asientos_fo_in:valid{
+    transform: translateY(-150%);
+    font-size: 14px;
+    color: black;
+}
+.numero_asientos_fo .numero_asientos_fo_in:focus, .numero_asientos_fo .numero_asientos_fo_in:valid{
+    transform: translateX(0%);
+}
+
+.numero_asientos1{
+    width: 9%;
+    height: 4%;
+    padding-left: 1%;
+}
+
+/* Diseñamos la parte de boletos disponibles */
+
+.boletos_dis{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding-top: 4%;
+}
+
+.boletos_dis_fo{
+    width: 100%;
+    height: 50px;
+    max-width: 400px;
+    position: relative;
+    overflow: hidden;
+}
+.boletos_dis_fo .boletos_dis_fo_in{
+    width: 100%;
+    height: 100%;
+    background: #D3D3D3;
+    border-radius: 15px;
+    color: #fff;
+    /* padding-top: 20px; */
+    border: none;
+    outline: 0px;
+}
+
+.boletos_dis_fo .boletos_dis_fo_in:focus ,.boletos_dis_fo .boletos_dis_fo_in:valid{
+    transform: translateY(-150%);
+    font-size: 14px;
+    color: black;
+}
+.boletos_dis_fo .boletos_dis_fo_in:focus, .boletos_dis_fo .boletos_dis_fo_in:valid{
+    transform: translateX(0%);
+}
+
+.boletos_dis1{
+    width: 9%;
+    height: 4%;
+    padding-left: 1%;
+}
+
+/* Diseñamos la parte de la descripcion */
+
+.des{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding-top: 4%;
+}
+
+.des_fo{
+    width: 100%;
+    height: 50px;
+    max-width: 400px;
+    position: relative;
+    overflow: hidden;
+}
+.des_fo .des_fo_in{
+    width: 100%;
+    height: 100%;
+    background: #D3D3D3;
+    border-radius: 15px;
+    color: #fff;
+    /* padding-top: 20px; */
+    border: none;
+    outline: 0px;
+}
+
+.des_fo .des_fo_in:focus ,.des_fo .des_fo_in:valid{
+    transform: translateY(-150%);
+    font-size: 14px;
+    color: black;
+}
+.des_fo .des_fo_in:focus, .des_fo .des_fo_in:valid{
+    transform: translateX(0%);
+}
+
+.des1{
+    width: 90%;
+    height: 30%;
+    padding-left: 1%;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Diseñamos la parte de selecionar el rango de edades */
+
+.edad{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 4%;
+}
+
+/* Diseñamos la parte de colocar edades */
+
+.edades{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding-top: 4%;
+}
+
+.edades_fo{
+    width: 100%;
+    height: 50px;
+    max-width: 400px;
+    position: relative;
+    overflow: hidden;
+}
+.edades_fo .edades_fo_in{
+    width: 100%;
+    height: 100%;
+    background: #D3D3D3;
+    border-radius: 15px;
+    color: #fff;
+    /* padding-top: 20px; */
+    border: none;
+    outline: 0px;
+}
+
+.edades_fo .edades_fo_in:focus ,.edades_fo .edades_fo_in:valid{
+    transform: translateY(-150%);
+    font-size: 14px;
+    color: black;
+}
+.edades_fo .edades_fo_in:focus, .edades_fo .edades_fo_in:valid{
+    transform: translateX(0%);
+}
+
+.edad1{
+    width: 5%;
+    height: 4%;
+    padding-left: 1%;
+    padding-right: 2%;
+}
+
+.edad2{
+    width: 5%;
+    height: 4%;
+    padding-left: 2%;
+}
+
+/* Diseño del texto de la parte de introducir imagen */
+
+.intro_img{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding-top: 4%;
+}
+
+.in_img{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding-top: 4%;
+}
+
+.in_img_fo{
+    width: 100%;
+    height: 50px;
+    max-width: 400px;
+    position: relative;
+    overflow: hidden;
+}
+.in_img_fo .in_img_fo_in{
+    width: 100%;
+    height: 100%;
+    background: #D3D3D3;
+    border-radius: 15px;
+    color: #fff;
+    /* padding-top: 20px; */
+    border: none;
+    outline: 0px;
+}
+
+.in_img_fo .in_img_fo_in:focus ,.in_img_fo .in_img_fo_in:valid{
+    transform: translateY(-150%);
+    font-size: 14px;
+    color: black;
+}
+.in_img_fo .in_img_fo_in:focus, .in_img_fo .in_img_fo_in:valid{
+    transform: translateX(0%);
+}
+
+.in-img1{
+    width: 20%;
+    height: 15%;
+    
+}
+
+/* Le damos diseño al boton de exportar imagen */
+
+.bot_expor{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding-top: 4%;
+}
+
+.bot_expor_bot{
+    background: none;
+    border-radius: 25px;
+    color: white;
+    padding: 1%;
+    background-color: #88C426;
+    border: none;
+}
+
+/* Damos diseño al boton de publicar */
+
+.publicar{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding-top: 4%;
+
+
+}
+
+.publicar_bot{
+    background: none;
+    border-radius: 25px;
+    color: white;
+    padding: 1%;
+    background-color: #88C426;
+    border: none;
+    width: 50%;
+}
