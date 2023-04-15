@@ -1,7 +1,6 @@
 import Head from "next/head";
-import Navbar from "./navbar";
-import Main from "./main";
-import EventList from "./eventList";
+import Main from "./Main"; //usamos main dentro del contenedor
+
 
 const container = (props) => {
   return (
@@ -18,12 +17,11 @@ const container = (props) => {
             name="viewport"
             content="width=device-width, initial-scale=1.0"
           />
-          <title>Document</title>
+          <title>Form</title>
         </>
       </Head>
-      <Navbar>{props.children}</Navbar>
-      <Main>{props.children}</Main>
-      <EventList>{props.children}</EventList>
+      {/* Las propiedades que vienen de index pasan a main(props) */}
+      <Main>{props.children}</Main> 
     </div>
   );
 };

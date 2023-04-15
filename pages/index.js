@@ -1,22 +1,23 @@
 import Head from 'next/head'
-import Container from '../components/container'
-import EventList from '../components/eventList'
-import Form from '../components/form'
-import Navbar from '../components/navbar'
+import Container from '../components/Container'
+import EventList from '../components/EventList'
+import Form from '../components/Form'
+import Navbar from '../components/Navbar'
 import API from '../util/const'
 import _fetch from 'isomorphic-fetch'
+import { useState } from 'react'
 
 const index = (props) => {
-    //console.log(props)
     console.log(props)
     return (
         <Container>
             <Head>
-                <title>Form</title>
+                {/* <title>Form</title> */}
             </Head>
             <Navbar/>
-            <Form/>
-            <EventList list = {props}/>
+            <EventList
+                list = {props}
+            />
         </Container>
     )
 }

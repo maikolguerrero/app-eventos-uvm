@@ -1,23 +1,19 @@
 import {useState, useEffect} from "react"
-import EventItem from "./eventItem";
+import EventItem from "./EventItem"; //Traemos el componente para usarlo en la función que lista el item.
 
 const eventList = (list) => {
-
+  
    const [eventos, setEventos] = useState([])
 
-   useEffect(()=> {
-     console.log("list: ", list.list)
+   useEffect(()=> { 
+    console.log('list: ', list.list)
    }, [])
-
+//retornamos div donde serán listados
   return (
-    // <>
-    // <section class="event-list">
-    //     <EventItem/>
-    // </section>
-    // </>
-    <section className="event-list">
+
+    <div className="event-list__container">
       <EventItem></EventItem>
-    </section>
+    </div>
   );
 };
 export default eventList;
