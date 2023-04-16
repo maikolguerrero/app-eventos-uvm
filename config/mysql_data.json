@@ -4,6 +4,12 @@
         "port": 3306,
         "user": "root",
         "pass": "",
+
         "database": "app_eventos_universidad_7"
     }
 }
+
+        "database": "app_eventos_universidad"
+    }
+}
+
