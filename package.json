@@ -1,14 +1,22 @@
 {
-  "name": "proyecto-frontend",
+  "name": "app-eventos-uvm",
   "version": "1.0.0",
-  "description": "",
+  "description": "Aplicación web para que los estudiantes y profesores puedan conocer los eventos de la universidad.",
   "main": "index.js",
   "scripts": {
     "start": "nodemon index.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maikolguerrero/app-eventos-uvm.git"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/maikolguerrero/app-eventos-uvm/issues"
+  },
+  "homepage": "https://github.com/maikolguerrero/app-eventos-uvm#readme",
   "dependencies": {
     "bcrypt": "^5.1.0",
     "cors": "^2.8.5",
