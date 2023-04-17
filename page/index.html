@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../style/style-iniciar-secion.css">
+    <link rel="stylesheet" href="../style/normalize.css">
+    <link rel="stylesheet" href="../style/responsive-iniciar-secion.css">
+    <link rel="stylesheet" href="../style/general-iniciar-secion.css">
+    <script src="../script/navbar-mobile.js" defer></script>
+</head>
+<body>
+    
+    <header class="header">
+        <!--elementos visibles en el header-->
+        <div class="header__logo-div">
+            <img src="../assets/img/Logo agosto 2022 sin fondo.png" alt="Logo de la UVM" class="header__logo"><span class="header__logo-lettering">UNIVERSIDAD</span>
+        </div>
+        <ul class="header__options">
+            <li class="header__options"><a href="#" class="header__link">Inicio</a></li>
+            <li class="header__options"><a href="#" class="header__link">Eventos</a></li>
+            <li class="header__options"><a href="#" class="header__link">Sobre nosotros</a></li>
+        </ul>
+        <div class="header__menu">
+            <div class="header__desk-btn">
+                <button class="header__sign-up">Registrarse</button>
+            </div>
+            <div class="header__button">
+                <span class="header__lines"></span>
+                <span class="header__lines"></span>
+            </div> 
+        </div>
+        <!-- menú desplegable -->
+        <div class="menu">
+            <ul class="menu__options">
+                <li class="menu__option"><a href="#" class="menu__link">Inicio</a></li>
+                <li class="menu__option"><a href="#" class="menu__link">Eventos</a></li>
+                <li class="menu__option"><a href="#" class="menu__link">Sobre nosotros</a></li>
+                <div class="menu__desk-btn">
+                    <button class="menu__sign-up">Registrarse</button>
+                </div>
+            </ul>
+        </div>
+    </header>
+    
+    <section class="iniciar-secion">
+       <form action="" class="form">
+        <div class="form__logo">
+            <img src="../assets/img/Logo agosto 2022 sin fondo.png" alt="Logo de la UVM" class="form__logo--img">
+        </div>
+        <h1 class="form__explain">Iniciar sesión</h1>
+        <fieldset class="form__fieldset">
+            <!-- Formulario de preguntas para llenar -->
+            <div class="form__div">
+                <label for="email" class="form__label form__label--email">Ingresa correo eléctronico</label>
+                <input type="text" id="email" placeholder="Ingresa correo eléctronico" class="form__input form__input--bar">
+            </div>
+            <div class="form__div">
+                <label for="password" class="form__label--password form__label">Contraseña</label>
+                <input type="text" id="password" placeholder="Contraseña"  class="form__input form__input--bar">
+            </div>
+            
+        </fieldset>
+       </form>
+        <!-- Creamos un boton para ingresar --> 
+        <div class="form__div form__div--button-container">
+            <button class="form__input form__input--button ">Ingresar</button>
+        </div>
+        <p class="form__cuenta">Aún no tienes cuenta?<a href="#" class="form__cuenta--link"> Creála ahora</a></p>
+    </section>
+
+</body>
+</html>
