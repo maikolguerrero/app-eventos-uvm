@@ -1,7 +1,7 @@
 {
   "name": "app-eventos-uvm",
   "version": "1.0.0",
-  "description": "",
+  "description": "Aplicación web para que los estudiantes y profesores puedan conocer los eventos de la universidad.",
   "main": "index.js",
   "scripts": {
     "start": "nodemon index.js"

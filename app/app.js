@@ -5,7 +5,7 @@ const { urlencoded, json } = require('express')
 const path = require('path')
 const cors = require('cors')
 
-// inicialización de la variable app
+// inicialización de la constante app
 const app = express()
 
 //Envio del puerto
@@ -17,6 +17,11 @@ app.use(urlencoded({extended: true}))
 app.use(json())
 
 // Configuración de las rutas 
+app.use('/recordatorios', require('./routes/recordatorios.routes'))
+app.use('/tipos', require('./routes/tipos.routes'))
+app.use('/categorias', require('./routes/categorias.routes'))
+app.use('/tickets', require('./routes/tickets.routes'))
+app.use('/registro_usuario_evento', require('./routes/registro.eventos.ticket'))
 app.use('/eventos', require('./routes/eventos.routes'))
 app.use('/usuarios', require('./routes/usuarios.routes'))
 
@@ -28,5 +33,5 @@ app.use((req, res, next) => {
 // Definición de los archivos estáticos (donde se van a subir las imágenes) 
 app.use(express.static(path.join(__dirname, '../static')))
 
-// Exportamos la variable app
+// Exportamos la constante app 
 module.exports = app

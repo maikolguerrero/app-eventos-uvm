@@ -1,8 +1,5 @@
-// Importamos el until, la conexion con nuestra base de datos
-const util = require('util')
+// Importamos la conexion con nuestra base de datos
 const connection = require('../../config/connection')
-// Creamos una variable para realizar las consultas
-const query = util.promisify(connection.query).bind(connection)
 
 // Función para los errores de las peticiones a la base de datos
 async function Empresa(sql, values) {
