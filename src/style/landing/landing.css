@@ -1,0 +1,150 @@
+/* Maiin */
+.landing-page{
+    display: flex;
+    flex-flow: column wrap;
+}
+/* ///////////////////// */
+/* Landing */
+.landing{
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: flex-end;
+    overflow: hidden;
+}
+
+.landing__background{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    display: flex;
+    justify-content: center;
+}
+.landing__background-img{
+    top: 0;
+    position: absolute;
+    width: 287.7vw;
+    height: 100vh;
+    z-index: -99;
+}
+.landing__background-tone{
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--secondary-color-trans);
+    position: absolute;
+}
+.landing__arrows{
+    position: absolute;
+    bottom: 0;
+}
+.landing__logo-25{
+    position: absolute;
+    right: -60px;
+    top: 30px;
+}
+.landing__text{
+    font-size: 1.5rem;
+    color: var(--white-color);
+    position: relative;
+    margin-bottom: 25px;
+    margin-left: 10px;
+}
+.landing__title{
+    margin-bottom: 0;
+}
+.landing__p{
+    margin-top: 0;
+    font-weight: 700;
+}
+/* ////////////////////// */
+/* sobre nosotros */
+.about-us{
+    display: flex;
+    flex-flow: column wrap;
+    width: 100vw;
+    margin-top: 5px;
+}
+.about-us__title-container{
+    background-color: var(--primary-color);
+    padding: 20px 0;
+    width: fit-content;
+    border-radius: 0 10px  10px 0;
+    position: absolute;
+}   
+.about-us__title{
+    margin: 10px 10px;
+    font-size: 2rem;
+    color: var(--tertiary-color);
+}
+.about-us__info{
+    display: flex;
+    flex-flow: column wrap;
+    margin-top: 80px;
+    border: 2px solid var(--secondary-color);
+    width: 95%;
+    box-shadow: -4px 4px 9px 2px;
+    align-self: center;
+    padding: 10px 10px;
+    box-sizing: border-box;
+    border-radius: 20px;
+}
+.about-us__p{
+    color: #000;
+    margin-top: 25px;
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+.about-us__img{
+    width: 100%;
+    align-self: center;
+    border-radius: 10px;
+}
+/* //////////////////// */
+/* Registrate */
+.reg-or-log{
+    margin-top: 10px;
+    height: 100vh;
+    background-color: var(--primary-color);
+    display: flex;
+    justify-content: center;
+    flex-flow: column wrap;
+    position: relative;
+}
+.reg-or-log__container{
+   display: flex;
+   flex-flow: column wrap;
+   align-items: center;
+   margin: 0 10px; 
+   padding: 0;
+}
+.reg-or-log__text{
+    color: var(--secondary-color);
+    font-weight: 650;
+    font-size: 2.2rem;
+    text-align: center;
+}
+.reg-or-log__text--bigger{
+    font-size: 2.8rem;
+}
+.reg-or-log__btn{ 
+    color: var(--white-color);
+    font-weight: 750;  
+    font-size: 1.5rem;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--secondary-color);
+    width: 95%;
+    padding: 20px 10px;
+}
+.reg-or-log__arrows{
+    position: absolute;
+    bottom: 0;
+}
+/* ///////////////// */
+/* Eventos */
+
+/* //////////////////// */
