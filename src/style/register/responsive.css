@@ -81,7 +81,7 @@
     .form__textarea{
         width: 95%;
     }
-    /* .form__div--duration*/ .form__img, .form__div--textarea{ 
+    .form__img, .form__div--textarea{ 
         justify-content: center;
     }
     .form__showimg{
