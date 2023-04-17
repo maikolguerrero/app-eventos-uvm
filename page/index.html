@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../style/style.css">
+    <link rel="stylesheet" href="../style/normalize.css">
+    <link rel="stylesheet" href="../style/responsive.css">
+    <link rel="stylesheet" href="../style/general.css">
+    <script src="../script/navbar-mobile.js" defer></script>
+</head>
+<body>
+    
+    <header class="header">
+        <!--elementos visibles en el header-->
+        <div class="header__logo-div">
+            <img src="../assets/img/Logo-uvm.png" alt="Logo de la UVM" class="header__logo"><span class="header__logo-lettering">UNIVERSIDAD</span>
+        </div>
+        <ul class="header__options">
+            <li class="header__options"><a href="#" class="header__link">Inicio</a></li>
+            <li class="header__options"><a href="#" class="header__link">Eventos</a></li>
+            <li class="header__options"><a href="#" class="header__link">Sobre nosotros</a></li>
+        </ul>
+        <div class="header__menu">
+            <div class="header__desk-btn">
+                <button class="header__log-in">Iniciar sesión</button>
+            </div>
+            <div class="header__button">
+                <span class="header__lines"></span>
+                <span class="header__lines"></span>
+            </div> 
+        </div>
+        <!-- menú desplegable -->
+        <div class="menu">
+            <ul class="menu__options">
+                <li class="menu__option"><a href="#" class="menu__link">Inicio</a></li>
+                <li class="menu__option"><a href="#" class="menu__link">Eventos</a></li>
+                <li class="menu__option"><a href="#" class="menu__link">Sobre nosotros</a></li>
+                <div class="menu__desk-btn">
+                    <button class="menu__log-in">Iniciar sesión</button>
+                </div>
+            </ul>
+        </div>
+    </header>
+    
+    <section class="registrate">
+        <h1 class="registrate__h1">Registrate</h1>
+       <form action="" class="form">
+        <p class="form__explain">Introduce la información requerida en los campos asignados</p>
+        <fieldset class="form__fieldset">
+            <!-- Formulario de preguntas para llenar -->
+            <div class="form__div">
+                <label for="user" class="form__label form__label--user">Usuario</label>
+                <input type="text" id="user" placeholder="Usuario"  class="form__input form__input--bar">
+            </div>
+            <div class="form__div">
+                <label for="name" class="form__label--name form__label">Nombre</label>
+                <input type="text" id="name" placeholder="Nombre"  class="form__input form__input--bar">
+            </div>
+
+            <div class="form__div">
+                <label for="last-name" class="form__label--last-name form__label">Apellido</label>
+                <input type="text" id="last-name" placeholder="Apellido"  class="form__input form__input--bar">
+            </div>
+
+            <div class="form__div">
+                <label for="email" class="form__label form__label--email">Correo eléctronico</label>
+                <input type="text" id="email" placeholder="Correo eléctronico"  class="form__input form__input--bar ">
+            </div>
+
+            <div class="form__div">
+                <label for="password" class="form__label form__label--password">Contraseña</label>
+                <input type="text" id="password" placeholder="Contraseña"  class="form__input form__input--bar ">
+            </div>
+
+            <div class="form__div">
+                <label for="repeat-password" class="form__label form__label--repeat-password">Repetir contraseña</label>
+                <input type="text" id="repeat-password" placeholder="Repetir contraseña"  class="form__input form__input--bar ">
+            </div>
+
+            <!-- Fecha -->
+
+            <div class="form__div form__div--date ">
+                <label for="date" class="form__label">Fecha de nacimiento</label>
+                <input type="date" id="date"  class="form__input form__input--date">
+            </div>
+
+            <!-- Rol -->
+
+            <div class="form__div form__div--selects">
+                <label for="date" class="form__label">Rol</label>
+                <select name="" id="date" class="form__select">
+                    <option value="valor1" class="form__option" name="selected">Profesor</option>
+                    <option value="valor1" class="form__option">Estudiante</option>
+                </select>
+            </div>
+
+            <!-- Genero -->
+
+            <div class="form__div form__div--selects">
+                <label for="date" class="form__label">Genero</label>
+                <select name="" id="date" class="form__select">
+                    <option value="valor1" class="form__option" name="selected">Masculino</option>
+                    <option value="valor1" class="form__option">Femenino</option>
+                </select>
+            </div>
+
+            <!-- Cuenta acerca de ti -->
+                
+            <div class="form__div form__div--textarea">
+                <label for="description" class="form__label form__label--textarea "></label>
+                <textarea class="form__textarea" id="description" placeholder="Cuenta acerca de ti"></textarea>
+            </div>
+
+            <!-- Imagen avatar -->
+            
+            <div class="form__div form__img">
+                <div class="form__showimg">
+                    
+                </div>
+                <div class="form__img--inputs">
+                    <label for="img" class="form__label">Introduce la imagen de tu avatar</label>
+                    <input type="file" id="img" class="form__input form__input--img"  accept="image/png, image/jpeg">
+                </div>
+            </div>
+            
+            <!-- Terminos y condiciones -->
+            
+            <div class="form__div form__div--accept">        
+                <div class="form__checkboxes--accept">
+                    <div class="form__checkbox">
+                        <input type="checkbox" class="form__input form__input--accept-check" id="accept">
+                        <label for="accept" class="form__label">Aceptar terminos y condiciones</label>
+                    </div>
+                </div>
+            </div>
+            
+        </fieldset>
+       </form>
+        <!-- Creamos un boton para enviar el registro --> 
+        <div class="form__div form__div--button-container">
+            <button class="form__input form__input--button ">Enviar</button>
+        </div>
+    </section>
+
+</body>
+</html>
