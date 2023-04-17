@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="../style/landing/landing.css">
     <link rel="stylesheet" href="../style/landing/responsive.css">
     <script src="../script/navbar/navbar-mobile.js" defer></script>
+    <script src="https://kit.fontawesome.com/13f461d95d.js" crossorigin="anonymous"></script>
     <title>#</title>
 </head>
 <body>
@@ -82,9 +83,37 @@
             </div>
             <img src="../assets/img/flechas_azules.png" alt="Flecha direccionales scrolldown" class="reg-or-log__arrows">
         </section>
-        <section class="eventos">
-            <div class="eventos__evento">
-                
+        <section class="events">
+            <div class="events__title-container">
+                <h2 class="events__title">Eventos</h2>
+            </div>
+            <div class="events__list">
+                <div class="events__event">
+                    <div class="events__info">
+                        <img src="../assets/img/h-scaled.jpg" alt="" class="events__img">
+                        <ul class="events__elements">
+                            <li class="events__element events__element--title">Titulo de evento</li>
+                            <li class="events__element">Lugar</li>
+                            <li class="events__element">Fecha</li>
+                            <li class="events__element"><i class="fa-solid fa-star events__starIcon"></i>   4.5 stars</li>
+                        </ul>
+                    </div>
+                    <div class="events__more-info">
+                        <ul class="events__more-info-elements">
+                            <li class="events__more-info-element">Organizador</li>
+                            <li class="events__more-info-element">Participantes</li>
+                            <li class="events__more-info-element">Asientos disponibles ${num}</li>
+                            <li class="events__more-info-element">duración ${hour}</li>
+                            <li class="events__more-info-element">limite de edad ${num}</li>
+                            <li class="events__more-info-element events__more-info-element--description">Descripción Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis quaerat sunt amet, autem, obcaecati, sequi quos quam dolore quia veniam placeat. Esse facere quidem eveniet asperiores aperiam repellendus voluptas enim.</li>
+                        </ul>
+                        <button class="events__see-less events__btn">Ver menos</button>
+                    </div>
+                    <div class="events__btns">
+                        <button class="events__see-more events__btn">Ver más</button>
+                       
+                    </div>
+                </div>
             </div>
         </section>
     </main>

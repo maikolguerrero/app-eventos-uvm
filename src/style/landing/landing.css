@@ -148,5 +148,110 @@
 }
 /* ///////////////// */
 /* Eventos */
+.events{
+    margin-top: 10px;
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-flow: column wrap;
+    align-content: center;
+    margin-bottom: 100px;
+}
+.events__title-container{
+    background-color: var(--primary-color);
+    padding: 20px 0;
+    width: fit-content;
+    border-radius: 0 10px  10px 0;
+    position: absolute;
+}
+.events__title{
+    margin: 10px 10px;
+    font-size: 2rem;
+    color: var(--white-color);
+}
+.events__list{
+    margin-top: 125px;
+    width: fit-content;
+    width: 95%;
+}
+.events__event{
+    position: relative;
+    display: flex;
+    flex-flow: column wrap;
+    overflow-y: hidden;
+}
+.events__event.active{
+    overflow-y: visible;
+}
+.events__info{
+    background-color: var(--primary-color);
+    display: flex;
+    box-shadow: -4px 4px 9px;
+    z-index: 99;
+}
+.events__img{
+    width: 100px;
+}
+.events__elements{
+   list-style: none;
+   margin: 0;
+   padding: 0;
+   padding: 20px 5px;
+}   
+.events__element{
+    font-size: 1rem;
+    font-weight: 500;
+}
+.events__element--title{
+    font-size: 1.3rem;
+}
+.events__starIcon{
+    color: var(--secondary-color);
+}
+.events__more-info{
+    margin: 0;
+    position: absolute;
+    top: -130px;
+}
+.events__more-info.active{
+    top: 1100px;
+}
+.events__more-info-elements{
+    background-color: var(--primary-color);
+    list-style-type: none;
+    padding: 10px 5px;
+    margin: 0;
+}
+.events__more-info-element{
+    font-size: 1rem;
+    font-weight: 500;
+}
+.events__more-info-element--description{
+    font-size: .7rem;
+}
+.events__btns{
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+}
+.events__btn{
+    border: none;
+    outline: none;
+    background-color: var(--primary-color);
+    padding: 5px;
+    width: 100px;
+}
+.events__see-more{
+    display: static;
+}
 
+.events__see-more.active{
+    display: none;
+}
+.events__see-less{
+    display: none;
+}
+.events__see-less{
+    display: static;
+}
 /* //////////////////// */
