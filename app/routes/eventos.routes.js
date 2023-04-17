@@ -7,7 +7,7 @@ const multer = require('multer')
 const uploader = multer({storage})
 
 //Trallendo las funciones 
-const {getInicializarionData, getOneEvento, getEventos, newEvento, getEventoEdad, getEventoTitulo, getEventoLugar, getEventoOrganizador, getEventoValoracion, getEventoDuracion, getEventoFecha} = require('../controller/evento.controller')
+const {getInicializarionData, getOneEvento, getEventos, newEvento, getEventoEdad, getEventoTitulo, getEventoLugar, getEventoOrganizador, getEventoValoracion, getEventoDuracion, getEventoFecha, deleteEvento, editarEvento} = require('../controller/evento.controller')
 
 //Ruta de inicializacion 
 route.get('/getInicializationData', getInicializarionData)
@@ -31,6 +31,10 @@ route.get('/getEventos/fecha/:fecha', getEventoFecha)
 route.get('/getEventos', getEventos)
 //Ruta para crear un nuevo evento
 route.post('/newEvento', uploader.single('file'), newEvento)
+//Ruta para eliminar un evento
+route.delete('/delete-evento/:id', deleteEvento)
+//Ruta de editar un Evento
+route.put('/edit-evento/:id', editarEvento)
 
 //Exportación de las rutas
 module.exports = route

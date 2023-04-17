@@ -95,6 +95,105 @@ async function newEvento (req, res) {
     }
 }
 
+// Funcion para Editar un nuevo Evento
+async function editarEvento(req, res) {
+    const { body, params } = req
+
+    // Creamos un objeto con los campos que se van a actualizar
+    const campos = {}
+    if (body.titulo) {
+        campos.titulo = body.titulo
+    }
+    if (body.url_imagen) {
+        campos.url_imagen = body.url_imagen
+    }
+    if (body.descripcion) {
+        campos.descripcion = body.descripcion
+    }
+    if (body.fecha) {
+        campos.fecha = body.fecha
+    }
+    if (body.lugar) {
+        campos.lugar = body.lugar
+    }
+    if (body.organizador) {
+        campos.organizador = body.organizador
+    }
+    if (body.participantes) {
+        campos.participantes = body.participantes
+    }
+    if (body.registro) {
+        campos.registro = body.registro
+    }
+    if (body.total_asientos) {
+        campos.total_asientos = body.total_asientos
+    }
+    if (body.disponibilidad_asientos) {
+        campos.disponibilidad_asientos = body.disponibilidad_asientos
+    }
+    if (body.duracion) {
+        campos.duracion = body.duracion
+    }
+    if (body.limite_edad) {
+        campos.limite_edad = body.limite_edad
+    }
+    if (body.valoracion) {
+        campos.valoracion = body.valoracion
+    }
+
+    
+    // Verificamos que se hayan enviado campos a actualizar
+    if (Object.keys(campos).length === 0) {
+        return res.status(400).json({ status: 400, menssage: "Debe enviar al menos un campo para actualizar"})
+    }
+
+    // Construimos la consulta SQL de manera dinámica
+    let sql = `UPDATE eventos SET `
+    let values = []
+    let i = 0
+    for (const [key, value] of Object.entries(campos)) {
+        sql += `${key} = ?`
+        values.push(value)
+        i++
+        if (i < Object.keys(campos).length) {
+            sql += `, `
+        }
+    }
+    const id = params.id
+    values.push(id)
+
+    sql += ` WHERE id = ?`
+
+    try {
+        const result = await Empresa(sql, values)
+        res.status(200).json({ status: 200, menssage: "Evento actualizado exitosamente"})
+    } catch (error) {
+        console.log(`Hubo un error : ${error}`)
+        res.status(500).json({ status: 500, menssage: "Error al actualizar el evento"})
+    }
+}
+
+
+// Funcion para eliminar un nuevo Evento
+async function deleteEvento(req, res) {
+    const { params } = req
+    const id = params.id
+
+    try {
+        // Verificamos si el evento existe antes de eliminarlo
+        const evento = await Empresa(`SELECT * FROM eventos WHERE id = ?`, [id])
+        if (!evento || evento.length === 0) {
+            return res.status(404).json({ status: 404, message: "El evento no existe"})
+        }
+
+        // Si el evento existe, lo eliminamos
+        const result = await Empresa(`DELETE FROM eventos WHERE id = ?`, [id])
+        res.status(200).json({ status: 200, message: "Evento eliminado exitosamente"})
+    } catch (error) {
+        console.log(`Hubo un error: ${error}`)
+        res.status(500).json({ status: 500, message: "Error al eliminar el evento"})
+    }
+}
 
 // Exportación de las funciones
 module.exports = {
@@ -109,4 +208,6 @@ module.exports = {
     getEventoValoracion,
     getEventoDuracion,
     getEventoFecha,
+    deleteEvento,
+    editarEvento,
 }
