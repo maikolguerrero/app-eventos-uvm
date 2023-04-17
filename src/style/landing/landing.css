@@ -179,6 +179,8 @@
     display: flex;
     flex-flow: column wrap;
     overflow-y: hidden;
+    margin-bottom: 20px;
+    z-index: -99;
 }
 .events__event.active{
     overflow-y: visible;
@@ -214,7 +216,8 @@
     top: -130px;
 }
 .events__more-info.active{
-    top: 1100px;
+    top: 0;
+    position: relative;
 }
 .events__more-info-elements{
     background-color: var(--primary-color);
@@ -226,8 +229,9 @@
     font-size: 1rem;
     font-weight: 500;
 }
-.events__more-info-element--description{
+.events__more-info-element-p{
     font-size: .7rem;
+    margin: 0;
 }
 .events__btns{
     position: relative;
@@ -242,7 +246,9 @@
     width: 100px;
 }
 .events__see-more{
-    display: static;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
 }
 
 .events__see-more.active{
@@ -251,7 +257,9 @@
 .events__see-less{
     display: none;
 }
-.events__see-less{
-    display: static;
+.events__see-less.active{
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
 }
 /* //////////////////// */

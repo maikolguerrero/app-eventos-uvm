@@ -9,9 +9,18 @@
     --font-header-options-style: italic 600 15pt system-ui;
     --menu-option-hover:#628824;
     --secondary-color-trans: rgb(28, 85, 92, .35);
+    --grey: rgb(109, 109, 109);
 }
 
 a{
     text-decoration: none;
     color: black;
+}
+
+html{
+    height: 100%;
+}
+
+ul{
+    list-style: none;
 }
