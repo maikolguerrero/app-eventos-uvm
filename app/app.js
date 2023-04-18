@@ -24,6 +24,7 @@ app.use('/tickets', require('./routes/tickets.routes'))
 app.use('/registro_usuario_evento', require('./routes/registro.eventos.ticket'))
 app.use('/eventos', require('./routes/eventos.routes'))
 app.use('/usuarios', require('./routes/usuarios.routes'))
+app.use('/favoritos', require('./routes/favoritos.routes'))
 
 // Middleware para manejar rutas no encontradas y devolver error 404
 app.use((req, res, next) => {
