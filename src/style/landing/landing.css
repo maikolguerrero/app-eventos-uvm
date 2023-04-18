@@ -40,6 +40,9 @@
     position: absolute;
     bottom: 0;
 }
+.landing__arrows--desk{
+    display: none;
+}
 .landing__logo-25{
     position: absolute;
     right: -60px;
