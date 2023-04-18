@@ -14,14 +14,14 @@ async function getListarEtiquetas(req, res) {
 // Función para mostrar 1 solo Etiqueta
 async function getEtiqueta(req, res) {
     
-    const { id } = parseInt(req.params)
-    let sql_etiquetas = `select * from etiquetas where id = ${id}`
+    const { id } = req.params
+    let sql_etiquetas = `select * from etiquetas where id = ${parseInt(id)}`
     const result = await Empresa(sql_etiquetas)
 
     //Enviamos la respuesta del servidor
 
     if (result.length === 0) {
-        res.status(204).json({ status: 204, menssage: "No existe la Etiqueta que buscas"})
+        res.status(400).json({ status: 400, menssage: "No existe la Etiqueta que buscas"})
     } else {
         res.status(200).json({ status: 200, data: result })
     }
