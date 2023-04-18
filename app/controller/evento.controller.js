@@ -97,15 +97,15 @@ async function newEvento (req, res) {
 
 // Funcion para Editar un nuevo Evento
 async function editarEvento(req, res) {
-    const { body, params } = req
+    const { body, file, params } = req
 
     // Creamos un objeto con los campos que se van a actualizar
     const campos = {}
     if (body.titulo) {
         campos.titulo = body.titulo
     }
-    if (body.url_imagen) {
-        campos.url_imagen = body.url_imagen
+    if (file) {
+        campos.url_imagen = `http://localhost:8080/image/${file.filename}`
     }
     if (body.descripcion) {
         campos.descripcion = body.descripcion
@@ -159,20 +159,21 @@ async function editarEvento(req, res) {
             sql += `, `
         }
     }
-    const id = params.id
-    values.push(id)
 
-    sql += ` WHERE id = ?`
+   // Enviar respuesta con código de estado HTTP 200 y mensaje de éxito
+   const id = params.id
+   values.push(id)
 
-    try {
-        const result = await Empresa(sql, values)
-        res.status(200).json({ status: 200, menssage: "Evento actualizado exitosamente"})
-    } catch (error) {
-        console.log(`Hubo un error : ${error}`)
-        res.status(500).json({ status: 500, menssage: "Error al actualizar el evento"})
-    }
+   sql += ` WHERE id = ?`
+
+   try {
+       const result = await Empresa(sql, values)
+       res.status(200).json({ status: 200, menssage: "Evento actualizado exitosamente"})
+   } catch (error) {
+       console.log(`Hubo un error : ${error}`)
+       res.status(500).json({ status: 500, menssage: "Error al actualizar el Evento"})
+   }
 }
-
 
 // Funcion para eliminar un nuevo Evento
 async function deleteEvento(req, res) {
