@@ -21,7 +21,7 @@ async function getTipo(req, res) {
     //Enviamos la respuesta del servidor
 
     if (result.length === 0) {
-        res.status(204).json({ status: 204, menssage: "No existe el Tipo que buscas"})
+        res.status(400).json({ status: 400, menssage: "No existe el Tipo que buscas"})
     } else {
         res.status(200).json({ status: 200, data: result })
     }
@@ -62,11 +62,17 @@ async function editTipo(req, res) {
         return res.status(400).json({ status: 400, menssage: "No existe el Tipo que deseas modificar"})
     }
 
+    let sql_comprobacion_2 = `select * from tipos where nombre = '${body.nombre_tipo}'`
+    const result_comprobacion_2 = await Empresa(sql_comprobacion_2)
+    if (result_comprobacion_2.length > 0) {
+        return res.status(200).json({ status: 200, menssage: "Ya existe el Tipo con ese nombre, por lo tanto no se modificó"})
+    }
+
     let sql_tipos = `UPDATE tipos SET nombre = '${body.nombre_tipo}' WHERE tipos.id = ${parseInt(body.id_tipo)}`
     const result = await Empresa(sql_tipos)
 
     //Enviamos la respuesta del servidor
-    res.status(201).json({ status: 201, menssage: "Se editó con éxito el nuevo Tipo"})
+    res.status(201).json({ status: 201, menssage: "Se editó con éxito el Tipo"})
 }
 
 // Función para eliminar un tipo
