@@ -180,7 +180,6 @@
     flex-flow: column wrap;
     overflow-y: hidden;
     margin-bottom: 20px;
-    z-index: -99;
 }
 .events__event.active{
     overflow-y: visible;
@@ -189,7 +188,7 @@
     background-color: var(--primary-color);
     display: flex;
     box-shadow: -4px 4px 9px;
-    z-index: 99;
+    z-index: 1;
 }
 .events__img{
     width: 100px;
