@@ -9,7 +9,9 @@ route.get('/getFavoritos', getFavoritos)
 //Ruta para buscar 1 favorito por su id
 route.get('/getFavoritos/:id', getOneFavorito)
 //Ruta para buscar agregar un nuevo favorito
-route.post('/NewFavorito', newFavorito)
+route.post('/newFavorito', newFavorito)
+//Ruta para buscar eliminar un favorito por su id
+route.delete('/deleteFavorito/:id', newFavorito)
 
 //Exportación de las rutas
 module.exports = route

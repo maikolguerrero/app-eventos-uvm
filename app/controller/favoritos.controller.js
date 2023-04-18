@@ -66,10 +66,32 @@ async function newFavorito(req, res) {
     }
 }
 
+// Función para Eliminar un Favorito
+async function deleteFavorito(req, res) {
+    const { body } = req
+
+    if (!body.id_evento_favorito) {
+        return res.status(400).json({ status: 400, message: "Has ingresado una propiedad o propiedades que no coinciden con: id_evento_favorito" })
+    }
+
+    let sql_comprobacion = `select * from eventos_favoritos where id_evento_favorito = '${body.id_evento_favorito}'`
+    const result_comprobacion = await Empresa(sql_comprobacion)
+    if (result_comprobacion.length === 0) {
+        return res.status(200).json({ status: 200, message: "No existe el Favorito que deseas eliminar" })
+    }
+
+    let sql_eventos_favoritos = `DELETE FROM eventos_favoritos WHERE eventos_favoritos.id_evento_favorito = ${body.id_evento_favorito}`
+    const result = await Empresa(sql_eventos_favoritos)
+
+    // Enviamos la respuesta del servidor
+    res.status(200).json({ status: 200, message: "Se eliminó con éxito el Favorito" })
+}
+
 
 // Exportación de las funciones
 module.exports = {
     getFavoritos,
     getOneFavorito,
     newFavorito,
+    deleteFavorito,
 }
