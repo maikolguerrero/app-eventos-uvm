@@ -11,7 +11,10 @@
     <link rel="stylesheet" href="../style/general.css">
     <link rel="stylesheet" href="../style/navbar/navbar.css">
     <link rel="stylesheet" href="../style/navbar/responsive.css">
+    <link rel="stylesheet" href="../style/register/footer.css">
     <script src="../script/navbar/navbar-mobile.js" defer></script>
+    <script src="../script/validar-formulario.js" defer></script>
+    <script src="https://kit.fontawesome.com/13f461d95d.js" crossorigin="anonymous"></script>
 </head>
 <body>
     
@@ -25,9 +28,17 @@
             <li class="header__options"><a href="#" class="header__link">Eventos</a></li>
             <li class="header__options"><a href="#" class="header__link">Sobre nosotros</a></li>
         </ul>
+        <i class="fa-solid fa-magnifying-glass header__search-button"></i>
+        <div class="header__search-input-container">
+            <input type="text" class="header__search-input" placeholder="Busca un evento">
+        </div>
+        <div class="header__search-blur">
+    
+        </div>
         <div class="header__menu">
             <div class="header__desk-btn">
                 <button class="header__log-in">Iniciar sesión</button>
+                <button class="header__sign-up">Registrarse</button>
             </div>
             <div class="header__button">
                 <span class="header__lines"></span>
@@ -42,6 +53,7 @@
                 <li class="menu__option"><a href="#" class="menu__link">Sobre nosotros</a></li>
                 <div class="menu__desk-btn">
                     <button class="menu__log-in">Iniciar sesión</button>
+                    <button class="menu__sign-up">Registrarse</button>
                 </div>
             </ul>
         </div>
@@ -74,12 +86,12 @@
 
             <div class="form__div">
                 <label for="password" class="form__label form__label--password">Contraseña</label>
-                <input type="text" id="password" placeholder="Contraseña"  class="form__input form__input--bar ">
+                <input type="password" id="password" placeholder="Contraseña"  class="form__input form__input--bar ">
             </div>
 
             <div class="form__div">
                 <label for="repeat-password" class="form__label form__label--repeat-password">Repetir contraseña</label>
-                <input type="text" id="repeat-password" placeholder="Repetir contraseña"  class="form__input form__input--bar ">
+                <input type="password" id="repeat-password" placeholder="Repetir contraseña"  class="form__input form__input--bar ">
             </div>
 
             <!-- Fecha -->
@@ -123,7 +135,7 @@
                     
                 </div>
                 <div class="form__img--inputs">
-                    <label for="img" class="form__label">Introduce la imagen de tu avatar</label>
+                    <label for="img" class="form__label" id="introducir__imagen">Introduce la imagen de tu avatar</label>
                     <input type="file" id="img" class="form__input form__input--img"  accept="image/png, image/jpeg">
                 </div>
             </div>
@@ -138,14 +150,62 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Creamos un boton para enviar el registro -->
+
+            <div class="form__div form__div--button-container">
+                <button class="form__input form__input--button ">Enviar</button>
+            </div>
             
         </fieldset>
        </form>
-        <!-- Creamos un boton para enviar el registro --> 
-        <div class="form__div form__div--button-container">
-            <button class="form__input form__input--button ">Enviar</button>
-        </div>
+         
+        
     </section>
 
+    <footer class="footer">
+        <div class="footer__logo-uni">
+            <img src="../assets/img/Logo-uvm.png" alt="Logo UVM" class="footer__logo-uni-img"><span class="header__logo-lettering header__logo-lettering--footer">UNIVERSIDAD</span>
+        </div>
+        <div class="footer__links">
+            <ul class="footer__events-list"><span class="footer__title">Eventos</span>
+                <li class="footer__element">
+                    <a href="" class="footer__element-link">Ultimos eventos</a>
+                </li>
+                <li class="footer__element">
+                    <a href="" class="footer__element-link">Buscar evento eventos</a>
+                </li>
+            </ul>
+            <ul class="footer__events-list"><span class="footer__title">Eventos</span>
+                <li class="footer__element">
+                    <a href="" class="footer__element-link">Ultimos eventos</a>
+                </li>
+                <li class="footer__element">
+                    <a href="" class="footer__element-link">Buscar evento eventos</a>
+                </li>
+            </ul>
+            <ul class="footer__events-list"><span class="footer__title">Eventos</span>
+                <li class="footer__element">
+                    <a href="" class="footer__element-link">Ultimos eventos</a>
+                </li>
+                <li class="footer__element">
+                    <a href="" class="footer__element-link">Buscar evento eventos</a>
+                </li>
+            </ul>
+        </div>
+        <div class="footer__follow-links">
+            <div class="footer__logo-uni">
+                <img src="../assets/img/Logo-uvm.png" alt="Logo UVM" class="footer__logo-uni-img"><span class="header__logo-lettering header__logo-lettering--footer">Siguenos en</span>
+            </div>
+            <ul class="footer__social-media-icons">
+                <li class="footer__social-element"><a href="" class="footer__social-element-link"><i class="fa-brands fa-facebook footer__sm-icon"></i></a></li>
+                <li class="footer__social-element"><a href="" class="footer__social-element-link"><i class="fa-brands fa-square-instagram footer__sm-icon"></i></a></li>
+                <li class="footer__social-element"><a href="" class="footer__social-element-link"><i class="fa-brands fa-youtube footer__sm-icon"></i></a></li>
+                <li class="footer__social-element"><a href="" class="footer__social-element-link"><i class="fa-brands fa-telegram footer__sm-icon"></i></a></li>
+            </ul>
+        </div>
+    </footer>
+
 </body>
+</html>
 </html>
