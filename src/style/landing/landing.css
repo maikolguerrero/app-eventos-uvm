@@ -216,6 +216,7 @@
     margin: 0;
     position: absolute;
     top: -130px;
+    transition: 300ms ease;
 }
 .events__more-info.active{
     top: 0;
