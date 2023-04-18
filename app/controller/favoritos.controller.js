@@ -38,23 +38,32 @@ async function getOneFavorito(req, res) {
 
 // Función para crear un nuevo Favorito
 async function newFavorito(req, res) {
-    console.log("newFavorito");
+    try {
+        console.log("newFavorito");
 
-    if (!req.body.id_evento || !req.body.id_usuario || !req.body.fecha_agregado) {
-        return res.status(400).json({ status: "FAILED", data: "Has ingresado datos que no corresponden con los siguientes: id_evento, id_usuario, fecha_agregado" })
+        if (!req.body.id_evento || !req.body.id_usuario || !req.body.fecha_agregado) {
+            return res.status(400).json({ status: "FAILED", data: "Has ingresado datos que no corresponden con los siguientes: id_evento, id_usuario, fecha_agregado" })
+        }
+
+        // Validación de datos
+        const id_evento = parseInt(req.body.id_evento);
+        const id_usuario = parseInt(req.body.id_usuario);
+        const fecha_agregado = new Date(req.body.fecha_agregado);
+
+        if (isNaN(id_evento) || isNaN(id_usuario) || isNaN(fecha_agregado.getTime())) {
+            return res.status(400).json({ status: "FAILED", data: "Los datos ingresados no son válidos" })
+        }
+
+        // Consulta preparada para evitar la inyección SQL
+        let sql_eventos_favoritos = `INSERT INTO eventos_favoritos (id_evento, id_usuario, fecha_agregado) VALUES (?, ?, ?)`
+        const result = await Empresa(sql_eventos_favoritos, [id_evento, id_usuario, fecha_agregado])
+
+        // Enviamos la respuesta del servidor
+        res.status(201).json({ status: 201, message: "Se creó con éxito el Favorito", respuesta: result })
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ status: 500, message: 'Ocurrió un error en el servidor' });
     }
-
-    const data = {
-        id_evento: req.body.id_evento,
-        id_usuario: req.body.id_usuario,
-        fecha_agregado: req.body.fecha_agregado
-    }
-
-    let sql_eventos_favoritos = `INSERT INTO eventos_favoritos (id_evento, id_usuario, fecha_agregado) VALUES ('${data.id_evento}', '${data.id_usuario}', '${data.fecha_agregado}')`
-    const result = await Empresa(sql_eventos_favoritos)
-
-    // Enviamos la respuesta del servidor
-    res.status(201).json({ status: 201, message: "Se creó con éxito el Favorito", respuesta: result })
 }
 
 
