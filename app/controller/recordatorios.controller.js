@@ -76,25 +76,25 @@ async function editRecordatorio(req, res) {
 }
 
 // Función para eliminar Recordatorio
-async function deleteRecordatorio(req, res) {
-    const { body } = req
+// async function deleteRecordatorio(req, res) {
+//     const { body } = req
     
-    if (!body.id_recordatorio) {
-        return res.status(400).json({ status: 400, menssage: "Has ingresa un propiedad o propiedades que no coinciden con: id_recordatorio"})
-    }
+//     if (!body.id_recordatorio) {
+//         return res.status(400).json({ status: 400, menssage: "Has ingresa un propiedad o propiedades que no coinciden con: id_recordatorio"})
+//     }
 
-    let sql_comprobacion = `select * from recordatorios where id = '${body.id_recordatorio}'`
-    const result_comprobacion = await Empresa(sql_comprobacion)
-    if (result_comprobacion.length === 0) {
-        return res.status(200).json({ status: 200, menssage: "No Existe el Recordatorio que deseas eliminar"})
-    }
+//     let sql_comprobacion = `select * from recordatorios where id = '${body.id_recordatorio}'`
+//     const result_comprobacion = await Empresa(sql_comprobacion)
+//     if (result_comprobacion.length === 0) {
+//         return res.status(200).json({ status: 200, menssage: "No Existe el Recordatorio que deseas eliminar"})
+//     }
 
-    let sql_recordatorios = `DELETE FROM recordatorios WHERE recordatorios.id = ${body.id_recordatorio}`
-    const result = await Empresa(sql_recordatorios)
+//     let sql_recordatorios = `DELETE FROM recordatorios WHERE recordatorios.id = ${body.id_recordatorio}`
+//     const result = await Empresa(sql_recordatorios)
 
-    // Enviamos la respuesta del servidor
-    res.status(200).json({status: 200, menssage: "Se eliminó con exito el Recordatorio"})
-}
+//     // Enviamos la respuesta del servidor
+//     res.status(200).json({status: 200, menssage: "Se eliminó con exito el Recordatorio"})
+// }
 
 // Exportación de las funciones
 module.exports = {
@@ -102,5 +102,4 @@ module.exports = {
     getListarUnoData,
     newRecordatorio,
     editRecordatorio,
-    deleteRecordatorio,
 }
