@@ -1,5 +1,5 @@
 const form = document.querySelector('.form');
-const submitButton = form.querySelector('.form__input--button');
+const submitButton = document.querySelector('.form__input--button');
 
 submitButton.addEventListener('click', (event) => {
   event.preventDefault(); // Evita que se envíe el formulario automáticamente
