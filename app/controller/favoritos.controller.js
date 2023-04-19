@@ -98,26 +98,55 @@ async function newFavorito(req, res) {
     }
 }
 
-// Función para Eliminar un Favorito en proceso
-// async function deleteFavorito(req, res) {
-//     const { body } = req
+// Función para Editar un Favorito
+async function editFavorito(req, res) {
+    const { body, params } = req
 
-//     if (!body.id_evento_favorito) {
-//         return res.status(400).json({ status: 400, message: "Has ingresado una propiedad o propiedades que no coinciden con: id_evento_favorito" })
-//     }
+    // Creamos un objeto con los campos que se van a actualizar
+    const campos = {}
+    if (body.id_usuario) {
+        campos.id_usuario = body.id_usuario
+    }
+    if (body.id_evento) {
+        campos.id_evento = body.id_evento
+    }
+    
+    // Verificamos que se hayan enviado campos a actualizar
+    if (Object.keys(campos).length === 0) {
+        return res.status(400).json({ status: 400, message: "Debe enviar al menos un campo para actualizar"})
+    }
 
-//     let sql_comprobacion = `select * from eventos_favoritos where id_evento_favorito = '${body.id_evento_favorito}'`
-//     const result_comprobacion = await Empresa(sql_comprobacion)
-//     if (result_comprobacion.length === 0) {
-//         return res.status(200).json({ status: 200, message: "No existe el Favorito que deseas eliminar" })
-//     }
+    // Verificamos si el favorito existe antes de intentar editarlo
+    const id = params.id
+    const favorito = await Empresa(`SELECT * FROM eventos_favoritos WHERE id_evento_favorito = ?`, [id])
+    if (!favorito || favorito.length === 0) {
+        return res.status(404).json({ status: 404, message: "El favorito no existe"})
+    }
 
-//     let sql_eventos_favoritos = `DELETE FROM eventos_favoritos WHERE eventos_favoritos.id_evento_favorito = ${body.id_evento_favorito}`
-//     const result = await Empresa(sql_eventos_favoritos)
+    // Construimos la consulta SQL de manera dinámica
+    let sql = `UPDATE eventos_favoritos SET `
+    let values = []
+    let i = 0
+    for (const [key, value] of Object.entries(campos)) {
+        sql += `${key} = ?`
+        values.push(value)
+        i++
+        if (i < Object.keys(campos).length) {
+            sql += `, `
+        }
+    }
+    values.push(id)
 
-//     // Enviamos la respuesta del servidor
-//     res.status(200).json({ status: 200, message: "Se eliminó con éxito el Favorito" })
-// }
+    sql += ` WHERE id_evento_favorito = ?`
+
+    try {
+        const result = await Empresa(sql, values)
+        res.status(200).json({ status: 200, message: "Favorito actualizado exitosamente"})
+    } catch (error) {
+        console.log(`Hubo un error : ${error}`)
+        res.status(500).json({ status: 500, message: "Error al actualizar el favorito"})
+    }
+}
 
 
 
