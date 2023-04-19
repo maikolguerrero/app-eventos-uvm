@@ -108,7 +108,7 @@ span{
     font-size: 120%;
 }
 .form__input{
-    width: 85%;
+    width: 95%;
     border: none;
     border-radius: 10px;
     padding: 10px;
@@ -116,7 +116,7 @@ span{
     background-color: var(--input-backgorund);
 }
 .form__textarea{
-    width: 85%;
+    width: 95%;
     height: 90px;
     border: none;
     border-radius: 10px;
