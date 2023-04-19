@@ -32,6 +32,25 @@ async function newRegistro(req, res) {
     if (!body.id_usuario || !body.id_evento || !body.id_ticket || !body.cantidad) {
         return res.status(400).json({ status: 400, menssage: "Has ingresado propiedades que no coinciden con: id_usuario, id_evento, id_ticket, cantidad"})
     }
+
+    let sql_comprobacion_2 = `select * from eventos where id = '${parseInt(body.id_evento)}'`
+    let sql_comprobacion_3 = `select * from usuarios where id = '${parseInt(body.id_usuario)}'`
+    let sql_comprobacion_4 = `select * from tickets where id = '${parseInt(body.id_ticket)}'`
+    const result_comprobacion_2 = await Empresa(sql_comprobacion_2)
+    const result_comprobacion_3 = await Empresa(sql_comprobacion_3)
+    const result_comprobacion_4 = await Empresa(sql_comprobacion_4)
+
+    if (result_comprobacion_2.length === 0) {
+        return res.status(400).json({ status: 400, menssage: "Has registrado el id de un evento que no existe, debes modificarlo"})
+    }
+
+    if (result_comprobacion_3.length === 0) {
+        return res.status(400).json({ status: 400, menssage: "Has registrado el id de un usuario que no existe, debes modificarla"})
+    }
+    
+    if (result_comprobacion_4.length === 0) {
+        return res.status(400).json({ status: 400, menssage: "Has registrado el id de un ticket que no existe, debes modificarla"})
+    }
     
     let sql_comprobacion = `select * from tickets where id = ${parseInt(body.id_ticket)}`
     const result_comprobacion = await Empresa(sql_comprobacion)
