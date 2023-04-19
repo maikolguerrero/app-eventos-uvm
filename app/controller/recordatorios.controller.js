@@ -32,7 +32,7 @@ async function newRecordatorio(req, res) {
     console.log("NewRecordatorio");
 
     if (!req.body.id_evento || !req.body.id_usuario || !req.body.fecha || !req.body.mensaje) {
-        return res.status(400).json({ status: "FAILED", data: "Has ingresado datos que no corresponden con los siguientes: id_evento, id_usuario, fecha, mensaje"})
+        return res.status(400).json({ status: 400, data: "Has ingresado datos que no corresponden con los siguientes: id_evento, id_usuario, fecha, mensaje"})
     }
 
     const data = {
@@ -40,6 +40,19 @@ async function newRecordatorio(req, res) {
         id_usuario: req.body.id_usuario,
         fecha: req.body.fecha,
         mensaje: req.body.mensaje
+    }
+
+    let sql_comprobacion = `select * from eventos where id = '${parseInt(data.id_evento)}'`
+    let sql_comprobacion_2 = `select * from usuarios where id = '${parseInt(data.id_usuario)}'`
+    const result_comprobacion = await Empresa(sql_comprobacion)
+    const result_comprobacion_2 = await Empresa(sql_comprobacion_2)
+
+    if (result_comprobacion.length === 0) {
+        return res.status(400).json({ status: 400, menssage: "Has registrado el id de un evento que no existe, debes modificarlo"})
+    }
+
+    if (result_comprobacion_2.length === 0) {
+        return res.status(400).json({ status: 400, menssage: "Has registrado el id de un usuario que no existe, debes modificarlo"})
     }
 
     let sql_recordatorios = `INSERT INTO recordatorios (id_evento, id_usuario, fecha_recordatorio, mensaje) VALUES ('${data.id_evento}', '${data.id_usuario}', '${data.fecha}', '${data.mensaje}')`
@@ -52,23 +65,33 @@ async function newRecordatorio(req, res) {
 // Función para editar un recordatorio
 async function editRecordatorio(req, res) {
 
-    if (!req.body.id || !req.body.fecha || !req.body.mensaje) {
-        return res.status(400).json({ status: "FAILED", menssage: "Has ingresado datos que no corresponden con los siguientes: id , fecha, mensaje"})
+    const { body } = req
+
+    if (!body.id || (!body.fecha && !body.mensaje)) {
+        return res.status(400).json({ status: 400, menssage: "Has ingresado datos que no corresponden con los siguientes: id , fecha o mensaje"})
     }
 
-    const data = {
-        id: req.body.id,
-        fecha: req.body.fecha,
-        mensaje: req.body.mensaje
-    }
+    let sql_recordatorios = ``
 
-    let sql_comprobacion = `select * from recordatorios where id = '${data.id}'`
+    let sql_comprobacion = `select * from recordatorios where id = '${body.id}'`
     const result_comprobacion = await Empresa(sql_comprobacion)
+
     if (result_comprobacion.length === 0) {
         return res.status(400).json({ status: 400, menssage: "No existe el Recordatorio que deseas modificar"})
     }
 
-    let sql_recordatorios = `UPDATE recordatorios SET fecha_recordatorio = '${data.fecha}', mensaje = '${data.mensaje}' WHERE recordatorios.id = ${data.id};`
+    if (body.fecha && body.mensaje) {
+        sql_recordatorios = `UPDATE recordatorios SET fecha_recordatorio = '${body.fecha}', mensaje = '${body.mensaje}' WHERE recordatorios.id = '${parseInt(body.id)}';`
+    }
+
+    if (!body.fecha && body.mensaje) {
+        sql_recordatorios = `UPDATE recordatorios SET mensaje = '${body.mensaje}' WHERE recordatorios.id = '${parseInt(body.id)}';`
+    }
+
+    if (body.fecha && !body.mensaje) {
+        sql_recordatorios = `UPDATE recordatorios SET fecha_recordatorio = '${body.fecha}' WHERE recordatorios.id = '${parseInt(body.id)}';`
+    }
+
     const result = await Empresa(sql_recordatorios)
 
     // Enviamos la respuesta del servidor

@@ -38,7 +38,7 @@ async function newCategoria(req, res) {
     let sql_comprobacion = `select * from categorias where nombre = '${body.nombre_categoria}'`
     const result_comprobacion = await Empresa(sql_comprobacion)
     if (result_comprobacion.length > 0) {
-        return res.status(200).json({ status: 200, menssage: "Ya existe la Categoria, por lo tanto no se modificó"})
+        return res.status(400).json({ status: 400, menssage: "Ya existe la Categoria, por lo tanto no se modificó"})
     }
 
     let sql_categorias = `INSERT INTO categorias (nombre) VALUES ('${body.nombre_categoria}')`
@@ -60,6 +60,12 @@ async function editCategoria(req, res) {
     const result_comprobacion = await Empresa(sql_comprobacion)
     if (result_comprobacion.length === 0) {
         return res.status(400).json({ status: 400, menssage: "No existe la Categoria que deseas modificar"})
+    }
+
+    let sql_comprobacion_2 = `select * from categorias where nombre = '${body.nombre_categoria}'`
+    const result_comprobacion_2 = await Empresa(sql_comprobacion_2)
+    if (result_comprobacion_2.length > 0) {
+        return res.status(400).json({ status: 400, menssage: "Ya existe la Categoria con ese Nombre, por lo tanto no se modificó"})
     }
 
     let sql_categorias = `UPDATE categorias SET nombre = '${body.nombre_categoria}' WHERE categorias.id = ${parseInt(body.id_categoria)}`

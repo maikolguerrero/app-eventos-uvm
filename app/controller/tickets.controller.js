@@ -33,6 +33,13 @@ async function newTicket(req, res) {
     if (!body.id_evento || !body.tipo_ticket || !body.precio_ticket || !body.descripcion_ticket || !body.tickets_disponibles) {
         return res.status(400).json({ status: 400, menssage: "Has ingresado propiedades que no coinciden con: id_evento, tipo_ticket, precio_ticket, descripcion_ticket, tickets_disponibles"})
     }
+    
+    let sql_comprobacion = `select * from eventos where id = '${parseInt(body.id_evento)}'`
+    const result_comprobacion = await Empresa(sql_comprobacion)
+
+    if (result_comprobacion.length === 0) {
+        return res.status(400).json({ status: 400, menssage: "Has registrado el id de un evento que no existe, debes modificarlo"})
+    }
 
     let sql_tickets = `INSERT INTO tickets (id_evento, tipo, precio, descripcion, tickets_disponibles) VALUES (${parseInt(body.id_evento)}, '${body.tipo_ticket}', '${body.precio_ticket}', '${body.descripcion_ticket}', ${body.tickets_disponibles});`
     const result = await Empresa(sql_tickets)
@@ -53,6 +60,13 @@ async function editTicket(req, res) {
     const result_comprobacion = await Empresa(sql_comprobacion)
     if (result_comprobacion.length === 0) {
         return res.status(400).json({ status: 400, menssage: "No existe el Ticket que deseas modificar"})
+    }
+    
+    let sql_comprobacion_2 = `select * from eventos where id = '${parseInt(body.id_evento)}'`
+    const result_comprobacion_2 = await Empresa(sql_comprobacion_2)
+
+    if (result_comprobacion_2.length === 0) {
+        return res.status(400).json({ status: 400, menssage: "Has registrado el id de un evento que no existe, debes modificarlo"})
     }
 
 
