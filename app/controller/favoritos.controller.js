@@ -39,24 +39,35 @@ async function getOneFavorito(req, res) {
 // Función para crear un nuevo Favorito
 async function newFavorito(req, res) {
     try {
-        console.log("newFavorito");
-
-        if (!req.body.id_evento || !req.body.id_usuario || !req.body.fecha_agregado) {
-            return res.status(400).json({ status: "FAILED", data: "Has ingresado datos que no corresponden con los siguientes: id_evento, id_usuario, fecha_agregado" })
+        if (!req.body.id_evento || !req.body.id_usuario) {
+            return res.status(400).json({ status: 400, data: "Has ingresado datos que no corresponden con los siguientes: id_evento, id_usuario" })
         }
 
         // Validación de datos
         const id_evento = parseInt(req.body.id_evento);
         const id_usuario = parseInt(req.body.id_usuario);
-        const fecha_agregado = new Date(req.body.fecha_agregado);
 
-        if (isNaN(id_evento) || isNaN(id_usuario) || isNaN(fecha_agregado.getTime())) {
-            return res.status(400).json({ status: "FAILED", data: "Los datos ingresados no son válidos" })
+        if (isNaN(id_evento) || isNaN(id_usuario)) {
+            return res.status(400).json({ status: 400, data: "Los datos ingresados no son válidos" })
+        }
+
+        // Verificar si el ID del evento existe en la base de datos
+        let sql_check_evento = `SELECT * FROM eventos WHERE id = ?`
+        const result_check_evento = await Empresa(sql_check_evento, [id_evento])
+        if (result_check_evento.length === 0) {
+            return res.status(400).json({ status: 400, data: "El ID del evento ingresado no existe en la base de datos" })
+        }
+
+        // Verificar si el ID del usuario existe en la base de datos
+        let sql_check_usuario = `SELECT * FROM usuarios WHERE id = ?`
+        const result_check_usuario = await Empresa(sql_check_usuario, [id_usuario])
+        if (result_check_usuario.length === 0) {
+            return res.status(400).json({ status: 400, data: "El ID del usuario ingresado no existe en la base de datos" })
         }
 
         // Consulta preparada para evitar la inyección SQL
-        let sql_eventos_favoritos = `INSERT INTO eventos_favoritos (id_evento, id_usuario, fecha_agregado) VALUES (?, ?, ?)`
-        const result = await Empresa(sql_eventos_favoritos, [id_evento, id_usuario, fecha_agregado])
+        let sql_eventos_favoritos = `INSERT INTO eventos_favoritos (id_evento, id_usuario) VALUES (?, ?)`
+        const result = await Empresa(sql_eventos_favoritos, [id_evento, id_usuario])
 
         // Enviamos la respuesta del servidor
         res.status(201).json({ status: 201, message: "Se creó con éxito el Favorito", respuesta: result })
