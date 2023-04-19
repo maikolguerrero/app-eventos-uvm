@@ -1,0 +1,17 @@
+@media screen and (min-width: 768px){
+    .form__input--bar{
+        width: 97%;
+    }
+    .form__textarea{
+        width: 97%;
+    }
+}
+
+@media screen and (min-width: 1050px){
+    .form__input--bar{
+        width: 98.8%;
+    }
+    .form__textarea{
+        width: 98.8%;
+    }
+}
