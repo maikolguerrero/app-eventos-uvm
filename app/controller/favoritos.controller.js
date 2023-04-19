@@ -36,6 +36,25 @@ async function getOneFavorito(req, res) {
     }
 }
 
+// Funcion para mostrar todos los favoritos de un usuario en especifico por id
+async function getFavoritosByIdUser(req, res) {
+    try {
+        const { id } = req.params
+        let sql_eventos_favoritos = `SELECT * FROM eventos_favoritos WHERE id_usuario = ${parseInt(id)} ORDER BY fecha_agregado DESC`
+        const result = await Empresa(sql_eventos_favoritos)
+
+        // Enviamos la respuesta del servidor
+        if (result.length === 0) {
+            res.status(204).json({ message: "No existen Favoritos para el usuario especificado" })
+        } else {
+            res.status(200).json({ status: 200, data: result })
+        }
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ status: 500, message: 'Ocurrió un error en el servidor' });
+    }
+}
+
 // Función para crear un nuevo Favorito
 async function newFavorito(req, res) {
     try {
