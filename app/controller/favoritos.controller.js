@@ -58,8 +58,10 @@ async function getFavoritosByIdUser(req, res) {
 // Función para crear un nuevo Favorito
 async function newFavorito(req, res) {
     try {
+        console.log("newFavorito");
+
         if (!req.body.id_evento || !req.body.id_usuario) {
-            return res.status(400).json({ status: 400, data: "Has ingresado datos que no corresponden con los siguientes: id_evento, id_usuario" })
+            return res.status(400).json({ status: "FAILED", data: "Has ingresado datos que no corresponden con los siguientes: id_evento, id_usuario" })
         }
 
         // Validación de datos
@@ -67,21 +69,21 @@ async function newFavorito(req, res) {
         const id_usuario = parseInt(req.body.id_usuario);
 
         if (isNaN(id_evento) || isNaN(id_usuario)) {
-            return res.status(400).json({ status: 400, data: "Los datos ingresados no son válidos" })
+            return res.status(400).json({ status: "FAILED", data: "Los datos ingresados no son válidos" })
         }
 
         // Verificar si el ID del evento existe en la base de datos
         let sql_check_evento = `SELECT * FROM eventos WHERE id = ?`
         const result_check_evento = await Empresa(sql_check_evento, [id_evento])
         if (result_check_evento.length === 0) {
-            return res.status(400).json({ status: 400, data: "El ID del evento ingresado no existe en la base de datos" })
+            return res.status(400).json({ status: "FAILED", data: "El ID del evento ingresado no existe en la base de datos" })
         }
 
         // Verificar si el ID del usuario existe en la base de datos
         let sql_check_usuario = `SELECT * FROM usuarios WHERE id = ?`
         const result_check_usuario = await Empresa(sql_check_usuario, [id_usuario])
         if (result_check_usuario.length === 0) {
-            return res.status(400).json({ status: 400, data: "El ID del usuario ingresado no existe en la base de datos" })
+            return res.status(400).json({ status: "FAILED", data: "El ID del usuario ingresado no existe en la base de datos" })
         }
 
         // Consulta preparada para evitar la inyección SQL
