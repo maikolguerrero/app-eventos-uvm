@@ -61,7 +61,7 @@ span{
     font-size: 120%;
 }
 .form__input{
-    width: 85%;
+    width: 95%;
     border: none;
     border-radius: 10px;
     padding: 10px;
@@ -69,7 +69,7 @@ span{
     background-color: var(--input-backgorund);
 }
 .form__textarea{
-    width: 85%;
+    width: 95%;
     height: 90px;
     border: none;
     border-radius: 10px;
@@ -143,28 +143,6 @@ span{
 }
 .form__input--accept-check{
     margin-right: 5px;
-}
-/* foto */
-.form__img{
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
-}
-.form__showimg{
-    width: 100px;
-    height: 100px;
-    background-color: var(--input-backgorund);
-}
-.form__img--inputs{
-    display: flex;
-    flex-flow: column wrap;
-    justify-content: flex-start;
-    margin: 0 5px;
-}
-.form__input--img{
-    width: 80%;
-    height: fit-content;
-    align-self: flex-start;
 }
 /* not show in mobile */
 .form__label--user, .form__label--name, .form__label--email, .form__label--last-name, .form__label--password, .form__label--repeat-password{
