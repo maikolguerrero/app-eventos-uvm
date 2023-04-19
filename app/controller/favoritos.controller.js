@@ -149,10 +149,34 @@ async function editFavorito(req, res) {
 }
 
 
+// Función para Eliminar un Favorito
+async function deleteFavorito(req, res) {
+    const { params } = req
+    const id = params.id
+
+    try {
+        // Verificamos si el favorito existe antes de eliminarlo
+        const favorito = await Empresa(`SELECT * FROM eventos_favoritos WHERE id_evento_favorito = ?`, [id])
+        if (!favorito || favorito.length === 0) {
+            return res.status(404).json({ status: 404, message: "El favorito no existe"})
+        }
+
+        // Si el favorito existe, lo eliminamos
+        const result = await Empresa(`DELETE FROM eventos_favoritos WHERE id_evento_favorito = ?`, [id])
+        res.status(200).json({ status: 200, message: "Favorito eliminado exitosamente"})
+    } catch (error) {
+        console.log(`Hubo un error: ${error}`)
+        res.status(500).json({ status: 500, message: "Error al eliminar el favorito"})
+    }
+}
+
 
 // Exportación de las funciones
 module.exports = {
     getFavoritos,
     getOneFavorito,
     newFavorito,
+    deleteFavorito,
+    getFavoritosByIdUser,
+    editFavorito,
 }
