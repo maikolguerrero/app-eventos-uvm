@@ -1,3 +1,8 @@
+@media screen and (min-width: 768px) {
+    .form__input--bar{
+        width: 97%;
+    }
+}
 @media screen and (min-width: 900px){
     /* not show in desk */
     .header__logo-div{
@@ -63,10 +68,6 @@
         align-items: center;
     }
     /* now you can show it */
-    .form__label--password,.form__label--email{
-        display: flex;
-        width: 150px;
-    }
     .form__fieldset{
         padding: 0 0 0 10px;
     }
@@ -74,3 +75,4 @@
         width: 100%;
     }
 }
+
