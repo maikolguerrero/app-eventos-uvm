@@ -1,7 +1,7 @@
 const route = require('express').Router()
 
 //traemos las funciones
-const { getListarData, getListarUnoData, newRecordatorio, editRecordatorio} = require('../controller/recordatorios.controller')
+const { getListarData, getListarUnoData, newRecordatorio, editRecordatorio, deleteRecordatorio} = require('../controller/recordatorios.controller')
 
 //Ruta de listar la data completa 
 route.get('/getRecordatorios', getListarData)
@@ -14,6 +14,9 @@ route.post('/newRecordatorio', newRecordatorio)
 
 //Ruta de editar un recordatorio
 route.put('/editRecordatorio', editRecordatorio)
+
+//Ruta de eliminar un recordatorio
+route.delete('/deleteRecordatorio', deleteRecordatorio)
 
 //Exportamos de las rutas
 module.exports = route
