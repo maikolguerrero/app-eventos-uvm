@@ -41,7 +41,6 @@ function validateEmail(email) {
 }
 
 function validatePassword(password) {
-    // Validar que el correo electrónico tenga el formato correcto
     const passwordRegex = /^.{6,12}$/;
     return passwordRegex.test(password);
   }
