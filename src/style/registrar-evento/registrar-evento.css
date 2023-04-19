@@ -225,28 +225,6 @@ span{
     width: 120px;
     margin-left: 5px;
 }
-/* foto */
-.form__img{
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
-}
-.form__showimg{
-    width: 200px;
-    height: 100px;
-    background-color: var(--input-backgorund);
-}
-.form__img--inputs{
-    display: flex;
-    flex-flow: column wrap;
-    justify-content: flex-start;
-    margin: 0 5px;
-}
-.form__input--img{
-    width: 80%;
-    height: fit-content;
-    align-self: flex-start;
-}
 /* not show in mobile */
 .header__logo-lettering,.header__desk-btn, .header__options, .form__label--event-title, .form__label--collaborators, .form__label--place, .form__label--manager, .form__label--textarea{
     display: none;

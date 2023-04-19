@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="../style/footer/footer.css">
     <link rel="stylesheet" href="../style/footer/responsive.css">
     <script src="../script/navbar/navbar-mobile.js" defer></script>
+    <script src="../script/registrar-evento/validar-reg-evento.js" defer></script>
     <script src="https://kit.fontawesome.com/13f461d95d.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -82,10 +83,10 @@
                 <label for="place" class="form__label form__label--place">Lugar</label>
                 <input type="text" id="place" placeholder="Lugar"  class="form__input form__input--bar ">
             </div>
-
+            <!--  -->
             <div class="form__div form__div--date ">
                 <label for="date" class="form__label">Fecha</label>
-                <input type="datetime-local" id="date"  class="form__input form__input--date">
+                <input type="date" id="date"  class="form__input form__input--date">
             </div>
 
             <div class="form__div form__div--selects">
@@ -102,17 +103,17 @@
                     <label for="tickets" class="form__label">Boletos disponibles</label>
                 <input type="number" id="tickets" class="form__input form__input--tickets">
                 </div>
-                <div class="form__checkboxes--tickets">
+                <div class="form__checkboxes--tickets" id="checkboxes">
                     <div class="form__checkbox">
-                        <input type="checkbox" class="form__input form__input--tickets-check" id="vip-ticket">
+                        <input type="checkbox" class="form__input form__input--tickets-check" id="checkbox" name="checkbox1">
                         <label for="vip-ticket" class="form__label">VIP</label>
                     </div>
                     <div class="form__checkbox">
-                        <input type="checkbox" class="form__input form__input--tickets-check" id="backstage-ticket">
+                        <input type="checkbox" class="form__input form__input--tickets-check" id="checkbox" name="checkbox2">
                         <label for="backstage-ticket" class="form__label">Tras vestidores</label>
                     </div>
                     <div class="form__checkbox">
-                        <input type="checkbox" class="form__input form__input--tickets-check" id="firts-line-ticket">
+                        <input type="checkbox" class="form__input form__input--tickets-check" id="checkbox" name="checkbox3">
                         <label for="firts-line-ticket" class="form__label">Primera fila</label>
                     </div>
                 </div>
@@ -143,15 +144,6 @@
                 <input type="time" id="duration" class="form__input form__input--duration">
             </div>
             
-            <div class="form__div form__img">
-                <div class="form__showimg">
-                    
-                </div>
-                <div class="form__img--inputs">
-                    <label for="img" class="form__label">Introduce una imagen representativa del evento.</label>
-                    <input type="file" id="img" class="form__input form__input--img"  accept="image/png, image/jpeg">
-                </div>
-            </div>
              <!-- Creamos un boton para subir el evento --> 
             <div class="form__div form__div--button-container">
                 <button class="form__input form__input--button ">Publicar</button>
