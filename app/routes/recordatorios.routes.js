@@ -15,7 +15,7 @@ route.post('/newRecordatorio', newRecordatorio)
 //Ruta de editar un recordatorio
 route.put('/editRecordatorio', editRecordatorio)
 
-//Ruta para eliminar un recordatorio
+//Ruta de eliminar un recordatorio
 route.delete('/deleteRecordatorio', deleteRecordatorio)
 
 //Exportamos de las rutas
