@@ -34,7 +34,7 @@ route.post('/newEvento', uploader.single('file'), newEvento)
 //Ruta para eliminar un evento
 route.delete('/delete-evento/:id', deleteEvento)
 //Ruta de editar un Evento
-route.put('/edit-evento/:id', editarEvento)
+route.put('/edit-evento/:id', uploader.single('file'), editarEvento)
 
 //Exportación de las rutas
 module.exports = route
