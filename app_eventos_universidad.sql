@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 10-04-2023 a las 22:51:38
+-- Tiempo de generación: 19-04-2023 a las 22:41:57
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -152,7 +152,6 @@ CREATE TABLE `eventos_valoraciones` (
 CREATE TABLE `notificaciones` (
   `id` int(11) NOT NULL,
   `id_usuario_emisor` int(11) NOT NULL,
-  `id_usuario_receptor` int(11) NOT NULL,
   `titulo` varchar(255) COLLATE utf8mb4_spanish_ci NOT NULL,
   `descripcion` text COLLATE utf8mb4_spanish_ci NOT NULL,
   `imagen` varchar(255) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
@@ -328,8 +327,7 @@ ALTER TABLE `eventos_valoraciones`
 --
 ALTER TABLE `notificaciones`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `id_usuario_emisor` (`id_usuario_emisor`),
-  ADD KEY `id_usuario_receptor` (`id_usuario_receptor`);
+  ADD KEY `id_usuario_emisor` (`id_usuario_emisor`);
 
 --
 -- Indices de la tabla `notificaciones_receptores`
@@ -472,8 +470,8 @@ ALTER TABLE `usuarios`
 -- Filtros para la tabla `eventos_categorias`
 --
 ALTER TABLE `eventos_categorias`
-  ADD CONSTRAINT `eventos_categorias_ibfk_1` FOREIGN KEY (`id_evento`) REFERENCES `eventos` (`id`),
-  ADD CONSTRAINT `eventos_categorias_ibfk_2` FOREIGN KEY (`id_categoria`) REFERENCES `categorias` (`id`);
+  ADD CONSTRAINT `eventos_categorias_ibfk_1` FOREIGN KEY (`id_evento`) REFERENCES `eventos` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `eventos_categorias_ibfk_2` FOREIGN KEY (`id_categoria`) REFERENCES `categorias` (`id`) ON DELETE CASCADE;
 
 --
 -- Filtros para la tabla `eventos_comentarios`
@@ -486,64 +484,63 @@ ALTER TABLE `eventos_comentarios`
 -- Filtros para la tabla `eventos_etiquetas`
 --
 ALTER TABLE `eventos_etiquetas`
-  ADD CONSTRAINT `eventos_etiquetas_ibfk_1` FOREIGN KEY (`id_evento`) REFERENCES `eventos` (`id`),
-  ADD CONSTRAINT `eventos_etiquetas_ibfk_2` FOREIGN KEY (`id_etiqueta`) REFERENCES `etiquetas` (`id`);
+  ADD CONSTRAINT `eventos_etiquetas_ibfk_1` FOREIGN KEY (`id_evento`) REFERENCES `eventos` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `eventos_etiquetas_ibfk_2` FOREIGN KEY (`id_etiqueta`) REFERENCES `etiquetas` (`id`) ON DELETE CASCADE;
 
 --
 -- Filtros para la tabla `eventos_favoritos`
 --
 ALTER TABLE `eventos_favoritos`
-  ADD CONSTRAINT `eventos_favoritos_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id`),
-  ADD CONSTRAINT `eventos_favoritos_ibfk_2` FOREIGN KEY (`id_evento`) REFERENCES `eventos` (`id`);
+  ADD CONSTRAINT `eventos_favoritos_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `eventos_favoritos_ibfk_2` FOREIGN KEY (`id_evento`) REFERENCES `eventos` (`id`) ON DELETE CASCADE;
 
 --
 -- Filtros para la tabla `eventos_tipos`
 --
 ALTER TABLE `eventos_tipos`
-  ADD CONSTRAINT `eventos_tipos_ibfk_1` FOREIGN KEY (`id_evento`) REFERENCES `eventos` (`id`),
-  ADD CONSTRAINT `eventos_tipos_ibfk_2` FOREIGN KEY (`id_tipo`) REFERENCES `tipos` (`id`);
+  ADD CONSTRAINT `eventos_tipos_ibfk_1` FOREIGN KEY (`id_evento`) REFERENCES `eventos` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `eventos_tipos_ibfk_2` FOREIGN KEY (`id_tipo`) REFERENCES `tipos` (`id`) ON DELETE CASCADE;
 
 --
 -- Filtros para la tabla `eventos_valoraciones`
 --
 ALTER TABLE `eventos_valoraciones`
-  ADD CONSTRAINT `eventos_valoraciones_ibfk_1` FOREIGN KEY (`id_evento`) REFERENCES `eventos` (`id`),
-  ADD CONSTRAINT `eventos_valoraciones_ibfk_2` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id`);
+  ADD CONSTRAINT `eventos_valoraciones_ibfk_1` FOREIGN KEY (`id_evento`) REFERENCES `eventos` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `eventos_valoraciones_ibfk_2` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id`) ON DELETE CASCADE;
 
 --
 -- Filtros para la tabla `notificaciones`
 --
 ALTER TABLE `notificaciones`
-  ADD CONSTRAINT `notificaciones_ibfk_1` FOREIGN KEY (`id_usuario_emisor`) REFERENCES `usuarios` (`id`),
-  ADD CONSTRAINT `notificaciones_ibfk_2` FOREIGN KEY (`id_usuario_receptor`) REFERENCES `usuarios` (`id`);
+  ADD CONSTRAINT `notificaciones_ibfk_1` FOREIGN KEY (`id_usuario_emisor`) REFERENCES `usuarios` (`id`) ON DELETE CASCADE;
 
 --
 -- Filtros para la tabla `notificaciones_receptores`
 --
 ALTER TABLE `notificaciones_receptores`
-  ADD CONSTRAINT `notificaciones_receptores_ibfk_1` FOREIGN KEY (`id_notificacion`) REFERENCES `notificaciones` (`id`),
-  ADD CONSTRAINT `notificaciones_receptores_ibfk_2` FOREIGN KEY (`id_usuario_receptor`) REFERENCES `usuarios` (`id`);
+  ADD CONSTRAINT `notificaciones_receptores_ibfk_1` FOREIGN KEY (`id_notificacion`) REFERENCES `notificaciones` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `notificaciones_receptores_ibfk_2` FOREIGN KEY (`id_usuario_receptor`) REFERENCES `usuarios` (`id`) ON DELETE CASCADE;
 
 --
 -- Filtros para la tabla `recordatorios`
 --
 ALTER TABLE `recordatorios`
-  ADD CONSTRAINT `recordatorios_ibfk_1` FOREIGN KEY (`id_evento`) REFERENCES `eventos` (`id`),
-  ADD CONSTRAINT `recordatorios_ibfk_2` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id`);
+  ADD CONSTRAINT `recordatorios_ibfk_1` FOREIGN KEY (`id_evento`) REFERENCES `eventos` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `recordatorios_ibfk_2` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id`) ON DELETE CASCADE;
 
 --
 -- Filtros para la tabla `registro_de_usuarios_en_eventos`
 --
 ALTER TABLE `registro_de_usuarios_en_eventos`
-  ADD CONSTRAINT `registro_de_usuarios_en_eventos_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id`),
-  ADD CONSTRAINT `registro_de_usuarios_en_eventos_ibfk_2` FOREIGN KEY (`id_evento`) REFERENCES `eventos` (`id`),
-  ADD CONSTRAINT `registro_de_usuarios_en_eventos_ibfk_3` FOREIGN KEY (`id_ticket`) REFERENCES `tickets` (`id`);
+  ADD CONSTRAINT `registro_de_usuarios_en_eventos_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `registro_de_usuarios_en_eventos_ibfk_2` FOREIGN KEY (`id_evento`) REFERENCES `eventos` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `registro_de_usuarios_en_eventos_ibfk_3` FOREIGN KEY (`id_ticket`) REFERENCES `tickets` (`id`) ON DELETE CASCADE;
 
 --
 -- Filtros para la tabla `tickets`
 --
 ALTER TABLE `tickets`
-  ADD CONSTRAINT `tickets_ibfk_1` FOREIGN KEY (`id_evento`) REFERENCES `eventos` (`id`);
+  ADD CONSTRAINT `tickets_ibfk_1` FOREIGN KEY (`id_evento`) REFERENCES `eventos` (`id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
