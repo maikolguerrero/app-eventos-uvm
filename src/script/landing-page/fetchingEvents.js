@@ -13,6 +13,7 @@ const loadEvent = async () =>{ //función async se usa try y catch
                 const endUrl = urlCutter(linkImg)//función que corta la ruta y la maneja para acceder a la caperta tomanod como referencia el archivo HTML.
                 const edad = await edadVerifier(evento)//función que nos dice "sin limite de edad" cuanod el valor del key es 0
                 const string = await collaborators(evento)//función que parsea el nombre de los colaboradores para mostrarlos (Tal, tal, tal)
+                const endDate = await dateDMY(evento)// arregla formato de las fechas
                 let date = evento.fecha // tomamos la fecha del evento y la separmos de la hora
                 date = date.split('T')//solo fecha
                 hora = date[1].split(':', 2)//solo hora
@@ -24,7 +25,7 @@ const loadEvent = async () =>{ //función async se usa try y catch
                             <ul class="events__elements">
                                 <li class="events__element events__element--title">${evento.titulo}</li>
                                 <li class="events__element">${evento.lugar}</li>
-                                <li class="events__element">${date[0]}</li>
+                                <li class="events__element">${endDate}</li>
                                 <li class="events__element"><i class="fa-solid fa-star events__starIcon"></i>${evento.valoracion}</li>
                             </ul>
                         </div>
@@ -104,4 +105,17 @@ const collaborators = (evento) =>{
         string += element+', '//lo guardas con una coma y un espacio dentro de la data.
    });
    return string//retornamos
+}
+
+const dateDMY = (evento) =>{
+    let date = evento.fecha
+    let dateSplitted = date.split('T')
+    dateSplitted = date = date.split(':')
+    let dateDefault = date[0]
+    let dateDefaultSplit = dateDefault.split('T')
+    let DateOnly = dateDefaultSplit[0]
+    let DateOnlySplit = DateOnly.split('-')
+    let DateReverse = DateOnlySplit.reverse()
+    let endDate = DateReverse.join('/')
+    return endDate
 }
