@@ -1,7 +1,7 @@
 // Llamamos a la funcion empresa
 const { connection, Empresa } = require('../empresa/query_empresa')
 
-// Funcion para listar todos los recordatorios
+// Funcion para listar todos los favoritos
 async function getFavoritos(req, res) {
     try {
         console.log("getFavoritos");
@@ -26,7 +26,7 @@ async function getOneFavorito(req, res) {
 
         //Enviamos la respuesta del servidor
         if (result.length === 0) {
-            res.status(204).json({ message: "No existe el Favorito que buscas" })
+            res.status(404).json({ message: "No existe el Favorito que buscas" })
         } else {
             res.status(200).json({ status: 200, data: result })
         }
@@ -45,7 +45,7 @@ async function getFavoritosByIdUser(req, res) {
 
         // Enviamos la respuesta del servidor
         if (result.length === 0) {
-            res.status(204).json({ message: "No existen Favoritos para el usuario especificado" })
+            res.status(404).json({ message: "No existen Favoritos para el usuario especificado" })
         } else {
             res.status(200).json({ status: 200, data: result })
         }
