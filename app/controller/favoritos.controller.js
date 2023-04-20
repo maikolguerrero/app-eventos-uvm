@@ -92,7 +92,7 @@ async function newFavorito(req, res) {
 
         // Enviamos la respuesta del servidor
         res.status(201).json({ status: 201, message: "Se creó con éxito el Favorito", respuesta: result })
-    } catch () {
+    } catch (error) {
         console.error(error);
         res.status(500).json({ status: 500, message: 'Ocurrió un error en el servidor' });
     }
@@ -169,7 +169,6 @@ async function deleteFavorito(req, res) {
         res.status(500).json({ status: 500, message: "Error al eliminar el favorito"})
     }
 }
-
 
 // Exportación de las funciones
 module.exports = {
