@@ -195,6 +195,8 @@
 }
 .events__img{
     width: 100px;
+    object-fit: cover;
+    object-position: center;
 }
 .events__elements{
    list-style: none;
@@ -205,6 +207,7 @@
 .events__element{
     font-size: 1rem;
     font-weight: 500;
+    margin: 5px 0;
 }
 .events__element--title{
     font-size: 1.3rem;
@@ -217,10 +220,12 @@
     position: absolute;
     top: -130px;
     transition: 300ms ease;
+    display: none;
 }
 .events__more-info.active{
     top: 0;
     position: relative;
+    display: block;
 }
 .events__more-info-elements{
     background-color: var(--primary-color);
@@ -229,11 +234,11 @@
     margin: 0;
 }
 .events__more-info-element{
-    font-size: 1rem;
+    font-size: 1.2rem;
     font-weight: 500;
 }
 .events__more-info-element-p{
-    font-size: .7rem;
+    font-size: 1rem;
     margin: 0;
 }
 .events__btns{
@@ -264,5 +269,8 @@
     display: flex;
     justify-content: center;
     cursor: pointer;
+}
+.events__element-title{
+    font-weight: 300;
 }
 /* //////////////////// */
