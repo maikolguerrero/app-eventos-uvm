@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../style/navbar/navbar.css">
+    <link rel="stylesheet" href="../style/navbar/loader.css">
     <link rel="stylesheet" href="../style/general.css">
     <link rel="stylesheet" href="../style/navbar/responsive.css">
     <link rel="stylesheet" href="../style/normalize.css">
@@ -13,6 +14,7 @@
     <link rel="stylesheet" href="../style/footer/footer.css">
     <link rel="stylesheet" href="../style/footer/responsive.css">
     <script src="../script/navbar/navbar-mobile.js" defer></script>
+    <script src="../script/navbar/fetchingSearchBar.js" defer></script>
     <script src="../script/landing-page/showEventInfo.js" defer></script>
     <script src="../script/landing-page/fetchingEvents.js" defer></script>
     <script src="https://kit.fontawesome.com/13f461d95d.js" crossorigin="anonymous"></script>
@@ -31,17 +33,17 @@
         </ul>
         <i class="fa-solid fa-magnifying-glass header__search-button"></i>
         <div class="header__search-input-container">
-            <input type="text" class="header__search-input" placeholder="Busca un evento">
+            <input type="text" class="header__search-input" placeholder="Busca un evento" autocomplete="off">
         </div>
         <div class="header__search-blur">
 
         </div>
         <div class="header__search-results">
             <div class="header__search-result">
-                <div class="header__search-element">
+                <!-- <div class="header__search-element">
                     <i class="fa-solid fa-magnifying-glass header__search-result-icon"></i>
                     <p class="header__search-result-txt">Un resultado de la búsqueda</p>
-                </div>
+                </div>  -->
             </div>
         </div>
         

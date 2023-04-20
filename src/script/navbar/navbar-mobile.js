@@ -24,6 +24,7 @@ window.addEventListener('click', (e) =>{
         results.classList.add('active')
     }else{
         results.classList.remove('active')
+        input.value = ""
     }
 })
 
