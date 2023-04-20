@@ -123,6 +123,20 @@ async function editFavorito(req, res) {
         return res.status(404).json({ status: 404, message: "El favorito no existe"})
     }
 
+    // Verificamos si el id_usuario y el id_evento existen en sus respectivas tablas
+    if (campos.id_usuario) {
+        const usuario = await Empresa(`SELECT * FROM usuarios WHERE id = ?`, [campos.id_usuario])
+        if (!usuario || usuario.length === 0) {
+            return res.status(404).json({ status: 404, message: "El usuario no existe"})
+        }
+    }
+    if (campos.id_evento) {
+        const evento = await Empresa(`SELECT * FROM eventos WHERE id = ?`, [campos.id_evento])
+        if (!evento || evento.length === 0) {
+            return res.status(404).json({ status: 404, message: "El evento no existe"})
+        }
+    }
+
     // Construimos la consulta SQL de manera dinámica
     let sql = `UPDATE eventos_favoritos SET `
     let values = []
