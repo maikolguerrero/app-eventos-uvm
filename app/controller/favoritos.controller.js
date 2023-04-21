@@ -26,7 +26,7 @@ async function getOneFavorito(req, res) {
 
         //Enviamos la respuesta del servidor
         if (result.length === 0) {
-            res.status(404).json({ message: "No existe el Favorito que buscas" })
+            res.status(404).json({ status: 404, message: "No existe el Favorito que buscas" })
         } else {
             res.status(200).json({ status: 200, data: result })
         }

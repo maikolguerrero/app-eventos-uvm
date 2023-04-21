@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="../style/login/style-iniciar-sesion.css">
+    <link rel="stylesheet" href="../style/normalize.css">
+    <link rel="stylesheet" href="../style/general.css">
+    <link rel="stylesheet" href="../style/login/responsive-iniciar-sesion.css">
+    <link rel="stylesheet" href="../style/login/navbar-iniciar-sesion.css">
+    <link rel="stylesheet" href="../style/login/responsive-nav-iniciar-sesion.css">
+    <link rel="stylesheet" href="../style/footer.css">
+    
+    <script src="../script/navbar/navbar-mobile.js" defer></script>
+    <script src="../script/login/validar-formulario-iniciar-sesion.js" defer></script>
+    <script src="https://kit.fontawesome.com/13f461d95d.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    
+    <header class="header">
+        <!--elementos visibles en el header-->
+        <div class="header__logo-div">
+            <img src="../assets/img/Logo-uvm.png" alt="Logo de la UVM" class="header__logo"><span class="header__logo-lettering">UNIVERSIDAD</span>
+        </div>
+        <ul class="header__options">
+            <li class="header__options"><a href="#" class="header__link">Inicio</a></li>
+            <li class="header__options"><a href="#" class="header__link">Eventos</a></li>
+            <li class="header__options"><a href="#" class="header__link">Sobre nosotros</a></li>
+        </ul>
+        <i class="fa-solid fa-magnifying-glass header__search-button"></i>
+        <div class="header__search-input-container">
+            <input type="text" class="header__search-input" placeholder="Busca un evento">
+        </div>
+        <div class="header__search-blur">
+    
+        </div>
+        <div class="header__menu">
+            <div class="header__desk-btn">
+                <button class="header__sign-up" onclick="window.location.href='./register.html'">Registrarse</button>
+            </div>
+            <div class="header__button">
+                <span class="header__lines"></span>
+                <span class="header__lines"></span>
+            </div> 
+        </div>
+        <!-- menú desplegable -->
+        <div class="menu">
+            <ul class="menu__options">
+                <li class="menu__option"><a href="#" class="menu__link">Inicio</a></li>
+                <li class="menu__option"><a href="#" class="menu__link">Eventos</a></li>
+                <li class="menu__option"><a href="#" class="menu__link">Sobre nosotros</a></li>
+                <div class="menu__desk-btn">
+                    <!-- <button id="boton-registrarse" class="menu__sign-up">Registrarse</button> -->
+                    <button class="menu__sign-up" onclick="window.location.href='./register.html'">Registrarse</button>
+                </div>
+            </ul>
+        </div>
+    </header>
+    
+    <section class="iniciar-secion">
+       <form action="" class="form">
+        <div class="form__logo">
+            <img src="../assets/img/Logo-uvm.png" alt="Logo de la UVM" class="form__logo--img">
+        </div>
+        <h1 class="form__explain">Iniciar sesión</h1>
+        <fieldset class="form__fieldset">
+            <!-- Formulario de preguntas para llenar -->
+            <div class="form__div">
+                <input type="text" id="username_o_email" name="username_o_email" placeholder="Ingresa tu username o email" class="form__input form__input--bar">
+            </div>
+            <div class="form__div">
+                <input type="password" id="password" name="password" placeholder="Contraseña"  class="form__input form__input--bar">
+            </div>
+            
+            <!-- Creamos un boton para ingresar -->
+            <div class="form__div form__div--button-container">
+                <button class="form__input form__input--button">Ingresar</button>
+            </div>
+            
+        </fieldset>
+       </form>
+        <p class="form__cuenta">Aún no tienes cuenta?<a href="register.html" class="form__cuenta--link"> Creála ahora</a></p>
+    </section>
+
+    <footer class="footer">
+        <div class="footer__logo-uni">
+            <img src="../assets/img/Logo-uvm.png" alt="Logo UVM" class="footer__logo-uni-img"><span class="header__logo-lettering header__logo-lettering--footer">UNIVERSIDAD</span>
+        </div>
+        <div class="footer__links">
+            <ul class="footer__events-list"><span class="footer__title">Eventos</span>
+                <li class="footer__element">
+                    <a href="" class="footer__element-link">Ultimos eventos</a>
+                </li>
+                <li class="footer__element">
+                    <a href="" class="footer__element-link">Buscar evento eventos</a>
+                </li>
+            </ul>
+            <ul class="footer__events-list"><span class="footer__title">Eventos</span>
+                <li class="footer__element">
+                    <a href="" class="footer__element-link">Ultimos eventos</a>
+                </li>
+                <li class="footer__element">
+                    <a href="" class="footer__element-link">Buscar evento eventos</a>
+                </li>
+            </ul>
+            <ul class="footer__events-list"><span class="footer__title">Eventos</span>
+                <li class="footer__element">
+                    <a href="" class="footer__element-link">Ultimos eventos</a>
+                </li>
+                <li class="footer__element">
+                    <a href="" class="footer__element-link">Buscar evento eventos</a>
+                </li>
+            </ul>
+        </div>
+        <div class="footer__follow-links">
+            <div class="footer__logo-uni">
+                <img src="../assets/img/Logo-uvm.png" alt="Logo UVM" class="footer__logo-uni-img"><span class="header__logo-lettering header__logo-lettering--footer">Siguenos en</span>
+            </div>
+            <ul class="footer__social-media-icons">
+                <li class="footer__social-element"><a href="" class="footer__social-element-link"><i class="fa-brands fa-facebook footer__sm-icon"></i></a></li>
+                <li class="footer__social-element"><a href="" class="footer__social-element-link"><i class="fa-brands fa-square-instagram footer__sm-icon"></i></a></li>
+                <li class="footer__social-element"><a href="" class="footer__social-element-link"><i class="fa-brands fa-youtube footer__sm-icon"></i></a></li>
+                <li class="footer__social-element"><a href="" class="footer__social-element-link"><i class="fa-brands fa-telegram footer__sm-icon"></i></a></li>
+            </ul>
+        </div>
+    </footer>
+
+</body>
+</html>
