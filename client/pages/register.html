@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+    <link rel="stylesheet" href="../style/register/register.css">
+    <link rel="stylesheet" href="../style/normalize.css">
+    <link rel="stylesheet" href="../style/register/responsive.css">
+    <link rel="stylesheet" href="../style/general.css">
+    <link rel="stylesheet" href="../style/navbar/navbar.css">
+    <link rel="stylesheet" href="../style/navbar/responsive.css">
+    <link rel="stylesheet" href="../style/footer.css">
+    <script src="../script/navbar/navbar-mobile.js" defer></script>
+    <script src="../script/register/validar-formulario.js" defer></script>
+    <script src="https://kit.fontawesome.com/13f461d95d.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <header class="header">
+        <!--elementos visibles en el header-->
+        <div class="header__logo-div">
+            <img src="../assets/img/Logo-uvm.png" alt="Logo de la UVM" class="header__logo"><span
+                class="header__logo-lettering">UNIVERSIDAD</span>
+        </div>
+        <ul class="header__options">
+            <li class="header__options"><a href="#" class="header__link">Inicio</a></li>
+            <li class="header__options"><a href="#" class="header__link">Eventos</a></li>
+            <li class="header__options"><a href="#" class="header__link">Sobre nosotros</a></li>
+        </ul>
+        <i class="fa-solid fa-magnifying-glass header__search-button"></i>
+        <div class="header__search-input-container">
+            <input type="text" class="header__search-input" placeholder="Busca un evento">
+        </div>
+        <div class="header__search-blur">
+
+        </div>
+        <div class="header__menu">
+            <div class="header__desk-btn">
+                <button class="header__log-in" onclick="window.location.href='./login.html'">Iniciar sesión</button>
+            </div>
+            <div class="header__button">
+                <span class="header__lines"></span>
+                <span class="header__lines"></span>
+            </div>
+        </div>
+        <!-- menú desplegable -->
+        <div class="menu">
+            <ul class="menu__options">
+                <li class="menu__option"><a href="#" class="menu__link">Inicio</a></li>
+                <li class="menu__option"><a href="#" class="menu__link">Eventos</a></li>
+                <li class="menu__option"><a href="#" class="menu__link">Sobre nosotros</a></li>
+                <div class="menu__desk-btn">
+                    <button class="menu__log-in" onclick="window.location.href='./login.html'">Iniciar sesión</button>
+                </div>
+            </ul>
+        </div>
+    </header>
+
+    <section class="registrate">
+        <h1 class="registrate__h1">Registrate</h1>
+        <!-- <form action="http://localhost:8080/usuarios/registro" method="post" class="form"> -->
+        <form id="registro" class="form">
+            <p class="form__explain">Introduce la información requerida en los campos asignados</p>
+            <fieldset class="form__fieldset">
+                <!-- Formulario de preguntas para llenar -->
+                <div class="form__div">
+                    <label for="name" class="form__label--name form__label">Nombre</label>
+                    <input type="text" id="name"  name="nombre" placeholder="Nombre" class="form__input form__input--bar">
+                </div>
+
+                <div class="form__div">
+                    <label for="last-name" class="form__label--last-name form__label">Apellido</label>
+                    <input type="text" id="last-name" name="apellido" placeholder="Apellido" class="form__input form__input--bar">
+                </div>
+
+                <div class="form__div">
+                    <label for="cedula" class="form__label--name form__label">C.I</label>
+                    <input type="text" id="cedula"  name="cedula" placeholder="Cédula de Identidad" class="form__input form__input--bar">
+                </div>
+
+                <div class="form__div">
+                    <label for="telefono" class="form__label--name form__label">Teléfono</label>
+                    <input type="tel" id="telefono" name="telefono" placeholder="Ingrese su número de teléfono" class="form__input form__input--bar" pattern="[0-9]{11}">
+                  </div>
+
+                <div class="form__div">
+                    <label for="email" class="form__label form__label--email">Correo eléctronico</label>
+                    <input type="text" id="email" name="email" placeholder="Correo eléctronico"
+                        class="form__input form__input--bar ">
+                </div>
+
+                <div class="form__div">
+                    <label for="user" class="form__label form__label--user">Nombre de usuario</label>
+                    <input type="text" id="user" name="username" placeholder="Usuario" class="form__input form__input--bar">
+                </div>
+
+                <div class="form__div">
+                    <label for="password" class="form__label form__label--password">Contraseña</label>
+                    <input type="password" id="password" name="password" placeholder="Contraseña" class="form__input form__input--bar ">
+                </div>
+
+                <div class="form__div">
+                    <label for="repeat-password" class="form__label form__label--repeat-password">Repetir
+                        contraseña</label>
+                    <input type="password" id="repeat-password" placeholder="Repetir contraseña"
+                        class="form__input form__input--bar ">
+                </div>
+
+                <!-- Rol -->
+
+                <div class="form__div form__div--selects">
+                    <label for="date" class="form__label">Rol</label>
+                    <select name="rol" id="rol" class="form__select">
+                        <option value="estudiante" class="form__option" name="selected">Estudiante</option>
+                        <option value="profesor" class="form__option">Profesor</option>
+                    </select>
+                </div>
+
+                <!-- Genero -->
+
+                <div class="form__div form__div--selects">
+                    <label for="date" class="form__label">Genero</label>
+                    <select name="genero" id="date" class="form__select">
+                        <option value="masculino" class="form__option" name="selected">Masculino</option>
+                        <option value="femenino" class="form__option">Femenino</option>
+                    </select>
+                </div>
+
+                <!-- Recibir notificaciones -->
+                <div class="form__div form__div--accept">
+                    <div class="form__checkboxes--accept">
+                        <div class="form__checkbox">
+                            <input type="checkbox" class="form__input--accept-check" id="notifications" name="notificationes" value="sí" uncheckedValue="no">
+                            <label for="notifications" class="form__label">Recibir notificaciones</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Terminos y condiciones -->
+
+                <div class="form__div form__div--accept">
+                    <div class="form__checkboxes--accept">
+                        <div class="form__checkbox">
+                            <input type="checkbox" class="form__input--accept-check" id="accept">
+                            <label for="accept" class="form__label">Aceptar terminos y condiciones</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Creamos un boton para enviar el registro -->
+
+                <div class="form__div form__div--button-container">
+                    <button type="submit" class="form__input form__input--button">Enviar</button>
+                  </div>
+
+            </fieldset>
+        </form>
+    </section>
+
+    <footer class="footer">
+        <div class="footer__logo-uni">
+            <img src="../assets/img/Logo-uvm.png" alt="Logo UVM" class="footer__logo-uni-img"><span
+                class="header__logo-lettering header__logo-lettering--footer">UNIVERSIDAD</span>
+        </div>
+        <div class="footer__links">
+            <ul class="footer__events-list"><span class="footer__title">Eventos</span>
+                <li class="footer__element">
+                    <a href="" class="footer__element-link">Ultimos eventos</a>
+                </li>
+                <li class="footer__element">
+                    <a href="" class="footer__element-link">Buscar evento eventos</a>
+                </li>
+            </ul>
+            <ul class="footer__events-list"><span class="footer__title">Eventos</span>
+                <li class="footer__element">
+                    <a href="" class="footer__element-link">Ultimos eventos</a>
+                </li>
+                <li class="footer__element">
+                    <a href="" class="footer__element-link">Buscar evento eventos</a>
+                </li>
+            </ul>
+            <ul class="footer__events-list"><span class="footer__title">Eventos</span>
+                <li class="footer__element">
+                    <a href="" class="footer__element-link">Ultimos eventos</a>
+                </li>
+                <li class="footer__element">
+                    <a href="" class="footer__element-link">Buscar evento eventos</a>
+                </li>
+            </ul>
+        </div>
+        <div class="footer__follow-links">
+            <div class="footer__logo-uni">
+                <img src="../assets/img/Logo-uvm.png" alt="Logo UVM" class="footer__logo-uni-img"><span
+                    class="header__logo-lettering header__logo-lettering--footer">Siguenos en</span>
+            </div>
+            <ul class="footer__social-media-icons">
+                <li class="footer__social-element"><a href="" class="footer__social-element-link"><i
+                            class="fa-brands fa-facebook footer__sm-icon"></i></a></li>
+                <li class="footer__social-element"><a href="" class="footer__social-element-link"><i
+                            class="fa-brands fa-square-instagram footer__sm-icon"></i></a></li>
+                <li class="footer__social-element"><a href="" class="footer__social-element-link"><i
+                            class="fa-brands fa-youtube footer__sm-icon"></i></a></li>
+                <li class="footer__social-element"><a href="" class="footer__social-element-link"><i
+                            class="fa-brands fa-telegram footer__sm-icon"></i></a></li>
+            </ul>
+        </div>
+    </footer>
+
+</body>
+
+</html>
+
+</html>
