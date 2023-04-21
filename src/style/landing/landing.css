@@ -138,6 +138,7 @@
     color: var(--white-color);
     font-weight: 750;  
     font-size: 1.5rem;
+    cursor: pointer;
     outline: none;
     border: none;
     border-radius: 10px;

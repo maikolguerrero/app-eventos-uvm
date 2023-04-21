@@ -1,4 +1,3 @@
-
 const url = 'http://localhost:8080/eventos/getEventos' //Url para obtener todos los eventos.
 
 const loadEvent = async () =>{ //función async se usa try y catch
@@ -79,13 +78,9 @@ const loadImages = async (evento) => {
 
 loadEvent()
 // Adaptar la ruta tomando como referencia el html
-const urlCutter = (linkImg) =>{
-    let splittedText = linkImg.split(/\\/g)//lo separamos en un array
-    splittedText.splice(0, 9)//quitamos los primeros 9 caracteres
-    const backTo = '../../'//dos carpetas para atras
-    const textJoin = splittedText.join('/')//unimos la ruta (//)
-    const endUrl = backTo+textJoin //unimos 
-    return endUrl //devolvemos la ruta ya hecha
+const urlCutter = (linkImg) => {
+    endURL = linkImg.substring(linkImg.indexOf('static'), linkImg.length);
+    return "../../" + endURL;//devolvemos la ruta corta
 }
 //si el valor de la edad es 0 es para todas las edades
 const edadVerifier = (evento) =>{

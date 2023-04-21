@@ -52,7 +52,6 @@ containerSearch.addEventListener('keypress', async (e)=>{//listenr que escucha l
                                 window.location.href = './event-info.html?id='+id
                             }
                         })
-                        console.log(id)
                     });
                     
                 window.addEventListener('click', (e) =>{//listener a la ventana vp

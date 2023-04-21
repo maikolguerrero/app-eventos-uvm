@@ -56,8 +56,70 @@ span{
     background-color: var(--secondary-color);
     margin: 6px;
 }
+/* not show in mobile */
+.header__logo-lettering,.header__desk-btn, .header__options{
+    display: none;
+}
+
+/* Menu */
+.menu{
+    position: absolute;
+    background-color: var(--primary-color);
+    width: 100vw;
+    top:-350px;
+}
+.menu__option{
+    list-style-type: none;
+    margin: 0;
+    padding: 20px 0;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+}
+.menu__options{
+    font-size: 1.3rem;
+    font: var(--font-header-options-style);
+    padding: 0;
+    margin: 0;
+}
+.menu__option:hover{
+    background-color: var(--menu-option-hover);
+    width: 100vw;
+}
+.menu.active{
+    top: 75px;
+    transition: 200ms ease;
+    z-index: -99;
+}
+/* botones dentro del menú */
+.menu__desk-btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column wrap;
+}
+.menu__log-in, .menu__sign-up{
+    font-weight: 700;
+    cursor: pointer;
+    outline: none;
+    border-radius: 5px;
+    margin: 5px 0;
+}
+.menu__log-in{
+    border: 2.5px solid var(--secondary-color);
+    color: var(--secondary-color);
+    background-color: transparent;
+    margin: 0 5px;
+    padding: 5px 10px;
+}
+.menu__sign-up{
+    border: none;
+    background-color: var(--secondary-color);
+    color: var(--white-color);
+    padding: 6.8px 23px;
+}
 /* FORMULARIO */
-.agregar-evento{
+.iniciar-secion{
     position: relative;
     top: 130px;
     border: 2px solid var(--secondary-color);
@@ -72,22 +134,15 @@ span{
     justify-content: center;
     align-items: center;
 }
-.agregar-evento__h1{
-    font-weight: 900;
-    font-size: 30pt;
-    color: var(--white-color);
-    background-color: var(--primary-color);
-    display: flex;
-    position: absolute;
-    inset: -45px 0 0 10px;
-    width: fit-content;
-    height: fit-content;
-    padding: 5px;
-    border-radius: 10px;
-    margin: 0;
-}
 .form__explain{
-    font-weight: 400;
+    text-align: center;
+}
+.form__logo{
+    text-align: center;
+}
+.form__logo--img{
+    width: 175px;
+    height: 175px;
 }
 .form__fieldset{
     border: none;
@@ -103,20 +158,19 @@ span{
     margin: 8px 0;
     width: 100%;
 }
-.form__label{
-    font-weight: 600;
-    font-size: 120%;
-}
 .form__input{
-    width: 95%;
+    width: 85%;
     border: none;
     border-radius: 10px;
     padding: 10px;
     outline: none;
     background-color: var(--input-backgorund);
 }
+.form__input--bar{
+    width: 94%;
+}
 .form__textarea{
-    width: 95%;
+    width: 85%;
     height: 90px;
     border: none;
     border-radius: 10px;
@@ -139,94 +193,13 @@ span{
     align-items: center;
     cursor: pointer;
 }
-/* ESPECIFICO */
-.form__input--date, .form__select, .form__input--tickets, .form__input--seats{
-    margin: 0 10px;
+.form__cuenta{
+    font-size: 17px;
 }
-/* Fecha */
-.form__div--date{
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
-    justify-content: center;
-}
-.form__input--date{
-    width: 115px;
-}
-/* Tipo */
-.form__div--selects{
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
-    justify-content: center;
-}
-.form__select{
-    outline: none;
-    box-shadow: none;
-    border: none;
-    background-color: var(--input-backgorund);
-    padding: 5px;
-}
-/* tickets */
-.form__num-tickets{
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
-    justify-content: center;
-}
-.form__div--tickets{
-    display: flex;
-    flex-flow: column wrap;
-    align-items: center;
-    justify-content: center;
-    margin: 10px 0;
-}
-.form__checkboxes--tickets{
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
-    justify-content: center;
-}
-.form__checkbox{
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
-    justify-content: center;
-    border: none;
-    border-radius: 10px;
-    margin: 5px 0px;
-    padding: 10px;
-}
-.form__input--tickets{
-    width: 100px;
-    
-}
-.form__input--tickets-check{
-    margin-right: 5px;
-}
-/* asientos */
-.form__div--seats{
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
-    justify-content: center;
-}
-.form__input--seats{
-    width: 50px;
-    
-}
-/* duration */
-.form__div--duration{
-    display: flex;
-    flex-flow: column wrap;
-    align-items: center;
-
-}
-.form__input--duration{
-    width: 120px;
-    margin-left: 5px;
+.form__cuenta--link{
+    color: var(--primary-color);
 }
 /* not show in mobile */
-.header__logo-lettering,.header__desk-btn, .header__options, .form__label--event-title, .form__label--collaborators, .form__label--place, .form__label--manager, .form__label--textarea{
+.header__logo-lettering,.header__desk-btn, .header__options, .form__label--email, .form__label--password{
     display: none;
 }
