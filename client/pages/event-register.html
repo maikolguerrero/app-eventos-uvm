@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../style/general.css">
+    <link rel="stylesheet" href="../style/event-register/event-register.css">
+    <link rel="stylesheet" href="../style/normalize.css">
+    <link rel="stylesheet" href="../style/responsive.css">
+    <link rel="stylesheet" href="../style/navbar/navbar.css">
+    <link rel="stylesheet" href="../style/navbar/responsive.css">
+    <link rel="stylesheet" href="../style/footer/footer.css">
+    <link rel="stylesheet" href="../style/footer/responsive.css">
+    <link rel="stylesheet" href="../style/event-register/responsive-event-register.css">
+    <script src="../script/navbar/navbar-mobile.js" defer></script>
+    <script src="../script/registrar-evento/validar-reg-evento.js" defer></script>
+    <script src="https://kit.fontawesome.com/13f461d95d.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    
+    <header class="header">
+        <!--elementos visibles en el header-->
+        <div class="header__logo-div">
+            <img src="../assets/img/Logo_UVM.png" alt="Logo de la UVM" class="header__logo"><span class="header__logo-lettering">UNIVERSIDAD</span>
+        </div>
+        <ul class="header__options">
+            <li class="header__options"><a href="#" class="header__link">Inicio</a></li>
+            <li class="header__options"><a href="#" class="header__link">Eventos</a></li>
+            <li class="header__options"><a href="#" class="header__link">Sobre nosotros</a></li>
+        </ul>
+        <i class="fa-solid fa-magnifying-glass header__search-button"></i>
+        <div class="header__search-input-container">
+            <input type="text" class="header__search-input" placeholder="Busca un evento">
+        </div>
+        <div class="header__search-blur">
+
+        </div>
+        <div class="header__search-results">
+            <div class="header__search-result">
+                <div class="header__search-element">
+                    <i class="fa-solid fa-magnifying-glass header__search-result-icon"></i>
+                    <p class="header__search-result-txt">Un resultado de la búsqueda</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="header__menu">
+            <div class="header__desk-btn">
+                <button class="header__log-in">Iniciar sesión</button>
+                <button class="header__sign-up">Registrarse</button>
+            </div>
+            <div class="header__button">
+                <span class="header__lines"></span>
+                <span class="header__lines"></span>
+            </div> 
+        </div>
+        <!-- menú desplegable -->
+        <div class="menu">
+            <ul class="menu__options">
+                <li class="menu__option"><a href="#" class="menu__link">Inicio</a></li>
+                <li class="menu__option"><a href="#" class="menu__link">Eventos</a></li>
+                <li class="menu__option"><a href="#" class="menu__link">Sobre nosotros</a></li>
+                <div class="menu__desk-btn">
+                    <button class="menu__log-in">Iniciar sesión</button>
+                    <button class="menu__sign-up">Registrarse</button>
+                </div>
+            </ul>
+        </div>
+    </header>
+    
+    <section class="agregar-evento">
+        <h1 class="agregar-evento__h1">Nuevo evento</h1>
+       <form action="" class="form">
+        <p class="form__explain">Introduce información necesaria para ingresar un nuevo evento</p>
+        <fieldset class="form__fieldset">
+            <div class="form__div">
+                <label for="event-title" class="form__label form__label--event-title">Título del evento</label>
+                <input type="text" id="event-title" placeholder="Título del evento"  class="form__input form__input--bar">
+            </div>
+            <div class="form__div">
+                <label for="manager" class="form__label--manager form__label">Organizador</label>
+                <input type="text" id="manager" placeholder="Organizador"  class="form__input form__input--bar">
+            </div>
+
+            <div class="form__div">
+                <label for="collaborators" class="form__label--collaborators form__label">Participantes</label>
+                <input type="text" id="collaborators" placeholder="Participantes"  class="form__input form__input--bar">
+            </div>
+
+            <div class="form__div">
+                <label for="place" class="form__label form__label--place">Lugar</label>
+                <input type="text" id="place" placeholder="Lugar"  class="form__input form__input--bar ">
+            </div>
+           
+            <div class="form__div form__div--date ">
+                <label for="date" class="form__label">Fecha</label>
+                <input type="date" id="date"  class="form__input form__input--date">
+            </div>
+
+            <div class="form__div form__div--selects">
+                <label for="date" class="form__label">Tipo</label>
+                <select name="" id="date" class="form__select">
+                    <option value="valor1" class="form__option" name="selected">Valor 1</option>
+                    <option value="valor1" class="form__option">Valor 1</option>
+                    <option value="valor1" class="form__option">Valor 1</option>
+                </select>
+            </div>
+            
+            <div class="form__div form__div--tickets">
+                <div class="form__num-tickets">
+                    <label for="tickets" class="form__label">Boletos disponibles</label>
+                <input type="number" id="tickets" class="form__input form__input--tickets">
+                </div>
+                <div class="form__checkboxes--tickets" id="checkboxes">
+                    <div class="form__checkbox">
+                        <input type="checkbox" class="form__input form__input--tickets-check" id="checkbox" name="checkbox1">
+                        <label for="vip-ticket" class="form__label">VIP</label>
+                    </div>
+                    <div class="form__checkbox">
+                        <input type="checkbox" class="form__input form__input--tickets-check" id="checkbox" name="checkbox2">
+                        <label for="backstage-ticket" class="form__label">Tras vestidores</label>
+                    </div>
+                    <div class="form__checkbox">
+                        <input type="checkbox" class="form__input form__input--tickets-check" id="checkbox" name="checkbox3">
+                        <label for="firts-line-ticket" class="form__label">Primera fila</label>
+                    </div>
+                </div>
+                
+                
+            </div>
+
+            <div class="form__div form__div--seats">
+                <label for="seats" class="form__label">Asientos disponibles</label>
+                <input type="number" id="seats" class="form__input form__input--seats">
+            </div>
+                
+            <div class="form__div form__div--textarea">
+                <label for="description" class="form__label form__label--textarea "></label>
+                <textarea class="form__textarea" id="description" placeholder="Descripción"></textarea>
+            </div>
+
+            <div class="form__div form__div--selects">
+                <label for="age-limit" class="form__label">Limite de edad</label>
+                <select name="age-limit" id="age-limit" class="form__select">
+                    <option value="all-ages" name="selected" class="form__option">Todas las edades</option>
+                    <option value="only-adults" class="form__option">Solo mayores de edad</option>
+                </select>
+            </div>
+
+            <div class="form__div form__div--duration">
+                <label for="duration" class="form__label">Duración</label>
+                <input type="time" id="duration" class="form__input form__input--duration">
+            </div>
+            
+             <!-- Creamos un boton para subir el evento --> 
+            <div class="form__div form__div--button-container">
+                <button class="form__input form__input--button ">Publicar</button>
+            </div>
+        </fieldset>
+       </form>
+    </section>
+
+    <footer class="footer">
+        <div class="footer__logo-uni">
+            <img src="../assets/img/Logo_UVM.png" alt="Logo UVM" class="footer__logo-uni-img"><span class="header__logo-lettering header__logo-lettering--footer">UNIVERSIDAD</span>
+        </div>
+        <div class="footer__links">
+            <ul class="footer__events-list"><span class="footer__title">Eventos</span>
+                <li class="footer__element">
+                    <a href="" class="footer__element-link">Ultimos eventos</a>
+                </li>
+                <li class="footer__element">
+                    <a href="" class="footer__element-link">Buscar evento eventos</a>
+                </li>
+            </ul>
+            <ul class="footer__events-list"><span class="footer__title">Eventos</span>
+                <li class="footer__element">
+                    <a href="" class="footer__element-link">Ultimos eventos</a>
+                </li>
+                <li class="footer__element">
+                    <a href="" class="footer__element-link">Buscar evento eventos</a>
+                </li>
+            </ul>
+            <ul class="footer__events-list"><span class="footer__title">Eventos</span>
+                <li class="footer__element">
+                    <a href="" class="footer__element-link">Ultimos eventos</a>
+                </li>
+                <li class="footer__element">
+                    <a href="" class="footer__element-link">Buscar evento eventos</a>
+                </li>
+            </ul>
+        </div>
+        <div class="footer__follow-links">
+            <div class="footer__logo-uni">
+                <img src="../assets/img/Logo_UVM.png" alt="Logo UVM" class="footer__logo-uni-img"><span class="header__logo-lettering header__logo-lettering--footer">Siguenos en</span>
+            </div>
+            <ul class="footer__social-media-icons">
+                <li class="footer__social-element"><a href="" class="footer__social-element-link"><i class="fa-brands fa-facebook footer__sm-icon"></i></a></li>
+                <li class="footer__social-element"><a href="" class="footer__social-element-link"><i class="fa-brands fa-square-instagram footer__sm-icon"></i></a></li>
+                <li class="footer__social-element"><a href="" class="footer__social-element-link"><i class="fa-brands fa-youtube footer__sm-icon"></i></a></li>
+                <li class="footer__social-element"><a href="" class="footer__social-element-link"><i class="fa-brands fa-telegram footer__sm-icon"></i></a></li>
+            </ul>
+        </div>
+    </footer>
+</body>
+</html>
