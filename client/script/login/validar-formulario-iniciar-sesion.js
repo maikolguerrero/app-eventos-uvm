@@ -1,12 +1,3 @@
-function verificarSesion() {
-  const token = localStorage.getItem('token');
-  if (token) {
-    // Aquí va el código cuando el usuario haya iniciado sesión
-  } else {
-    window.location.href = 'login.html';
-  }
-}
-
 const form = document.querySelector('.form');
 const submitButton = document.querySelector('.form__input--button');
 
@@ -44,7 +35,6 @@ submitButton.addEventListener('click', (event) => {
     password
   };
 
-  console.log(formData);
   fetch('http://localhost:8080/usuarios/login', {
     method: 'POST',
     headers: {
@@ -54,9 +44,9 @@ submitButton.addEventListener('click', (event) => {
   })
     .then(response => response.json())
     .then(data => {
-      console.log(data);
-      if(data.token){
+      if (data.token) {
         localStorage.setItem('token', data.token);
+        window.location.href = './landing-page.html';
       } else {
         alert("Datos incorrectos, por favor vuelva a intentar");
       }

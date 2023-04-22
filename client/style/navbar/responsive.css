@@ -52,4 +52,18 @@
     color: var(--white-color);
     padding: 6.8px 23px;
 }
+.header__user-img-btn{
+    display: none;
+}
+.header__user-desk{
+    display: flex;
+}
+.header__user-img-desk{
+    font-size: 3rem;
+    margin: 0 10px;
+    cursor: pointer;
+}
+.header__user-elements{
+    justify-content: center; 
+}
 }

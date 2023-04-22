@@ -1,28 +1,34 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../style/landing/narvbar/navbar.css">
+    <link rel="stylesheet" href="../style/navbar/navbar.css">
+    <link rel="stylesheet" href="../style/navbar/responsive.css">
+    <link rel="stylesheet" href="../style/navbar/loader.css">
     <link rel="stylesheet" href="../style/general.css">
-    <link rel="stylesheet" href="../style/landing/narvbar/responsive.css">
     <link rel="stylesheet" href="../style/normalize.css">
     <link rel="stylesheet" href="../style/landing/landing.css">
     <link rel="stylesheet" href="../style/landing/responsive.css">
-    <link rel="stylesheet" href="../style/footer.css">
-    <!-- <link rel="stylesheet" href="../style/footer/responsive.css"> -->
+    <link rel="stylesheet" href="../style/footer/footer.css">
+
+    <script src="../script/verificar-sesion/verificar-sesion.js" defer></script>
     <script src="../script/navbar/navbar-mobile.js" defer></script>
+    <script src="../script/navbar/fetchingSearchBar.js" defer></script>
     <script src="../script/landing-page/showEventInfo.js" defer></script>
     <script src="../script/landing-page/fetchingEvents.js" defer></script>
     <script src="https://kit.fontawesome.com/13f461d95d.js" crossorigin="anonymous"></script>
     <title>Inicio</title>
 </head>
+
 <body>
     <header class="header">
         <!--elementos visibles en el header-->
         <div class="header__logo-div">
-            <img src="../assets/img/Logo_UVM.png" alt="Logo de la UVM" class="header__logo"><span class="header__logo-lettering">UNIVERSIDAD</span>
+            <img src="../assets/img/Logo_UVM.png" alt="Logo de la UVM" class="header__logo"><span
+                class="header__logo-lettering">UNIVERSIDAD</span>
         </div>
         <ul class="header__options">
             <li class="header__options"><a href="#" class="header__link">Inicio</a></li>
@@ -31,29 +37,30 @@
         </ul>
         <i class="fa-solid fa-magnifying-glass header__search-button"></i>
         <div class="header__search-input-container">
-            <input type="text" class="header__search-input" placeholder="Busca un evento">
+            <input type="text" class="header__search-input" placeholder="Busca un evento" autocomplete="off">
         </div>
         <div class="header__search-blur">
 
         </div>
         <div class="header__search-results">
-            <div class="header__search-result">
-                <div class="header__search-element">
-                    <i class="fa-solid fa-magnifying-glass header__search-result-icon"></i>
-                    <p class="header__search-result-txt">Un resultado de la búsqueda</p>
-                </div>
-            </div>
+            <div class="header__search-result"></div>
         </div>
-        
+
         <div class="header__menu">
-            <div class="header__desk-btn">
+            <div class="header__desk-btn sesion-cerrada">
                 <button class="header__log-in" onclick="window.location.href='./login.html'">Iniciar sesión</button>
                 <button class="header__sign-up" onclick="window.location.href='./register.html'">Registrarse</button>
+            </div>
+            <div class="header__user-desk sesion-activa">
+                <button class="header__user-img-desk-btn"><i
+                        class="fa-solid fa-circle-user header__user-img-desk"></i></button>
+                <button class="header__user-menu-log-out cerrar-sesion-btn" id="cerrar-sesion-btn">Cerrar sesión<i
+                        class="fa-solid fa-right-from-bracket header__log-out-icon"></i></button>
             </div>
             <div class="header__button">
                 <span class="header__lines"></span>
                 <span class="header__lines"></span>
-            </div> 
+            </div>
         </div>
         <!-- menú desplegable -->
         <div class="menu">
@@ -61,9 +68,14 @@
                 <li class="menu__option"><a href="#" class="menu__link">Inicio</a></li>
                 <li class="menu__option"><a href="#" class="menu__link">Eventos</a></li>
                 <li class="menu__option"><a href="#" class="menu__link">Sobre nosotros</a></li>
-                <div class="menu__desk-btn">
+                <div class="menu__desk-btn sesion-cerrada">
                     <button class="menu__log-in" onclick="window.location.href='./login.html'">Iniciar sesión</button>
                     <button class="menu__sign-up" onclick="window.location.href='./register.html'">Registrarse</button>
+                </div>
+                <div class="menu__desk-btn sesion-activa">
+                    <button class="header__user-menu-log-out cerrar-sesion-btn"
+                        id="cerrar-sesion-menu-desplegable-btn">Cerrar sesión<i
+                            class="fa-solid fa-right-from-bracket header__log-out-icon"></i></button>
                 </div>
             </ul>
         </div>
@@ -71,11 +83,13 @@
     <main class="landing-page">
         <section class="landing">
             <div class="landing__background">
-                <img src="../assets/img/retrato-pueblo-joven-feliz-reposo-muelle-amigos-disfrutando-juego-lago-emociones-positivas.jpg" alt="imagen de fondo" class="landing__background-img">
-            <div class="landing__background-tone"></div>
+                <img src="../assets/img/retrato-pueblo-joven.jpg" alt="imagen de fondo" class="landing__background-img">
+                <div class="landing__background-tone"></div>
             </div>
-            <img src="../assets/img/flechas_verdes.png" alt="Flechas direccionales para el scrolldown." class="landing__arrows">
-            <img src="../assets/img/flechas_verdes.png" alt="Flechas direccionales para el scrolldown." class="landing__arrows--desk">
+            <img src="../assets/img/flechas_verdes.png" alt="Flechas direccionales para el scrolldown."
+                class="landing__arrows">
+            <img src="../assets/img/flechas_verdes.png" alt="Flechas direccionales para el scrolldown."
+                class="landing__arrows--desk">
             <img src="../assets/img/Logo 25 años.png" alt="Logo 25 años" class="landing__logo-25">
             <div class="landing__text">
                 <h1 class="landing__title">Universidad Valle del Momboy</h1>
@@ -89,20 +103,23 @@
             </div>
             <div class="about-us__info">
                 <p class="about-us__p">
-                    La Universidad Valle del Momboy, es una Institución de Educación Universitaria de carácter comunitario, sin fines de lucro, de inspiración humanista – cristiana, con el fin de contribuir al desarrollo humano sustentable de esta porción de la tierra venezolana.
+                    La Universidad Valle del Momboy, es una Institución de Educación Universitaria de carácter
+                    comunitario, sin fines de lucro, de inspiración humanista – cristiana, con el fin de contribuir al
+                    desarrollo humano sustentable de esta porción de la tierra venezolana.
                 </p>
                 <img src="../assets/img/h-scaled.jpg" alt="Imagen de la uvm." class="about-us__img">
             </div>
         </section>
         <!-- Registrate -->
-        <section class="reg-or-log">
+        <section class="reg-or-log sesion-cerrada">
             <div class="reg-or-log__container">
                 <p class="reg-or-log__text reg-or-log__text--bigger">¡Se parte de la familia UVM!</p>
                 <button class="reg-or-log__btn" onclick="window.location.href='./register.html'">Registrarse</button>
                 <p class="reg-or-log__text">...O si ya eres parte</p>
                 <button class="reg-or-log__btn" onclick="window.location.href='./login.html'">Iniciar Sesion</button>
             </div>
-            <img src="../assets/img/flechas_azules.png" alt="Flecha direccionales scrolldown" class="reg-or-log__arrows">
+            <img src="../assets/img/flechas_azules.png" alt="Flecha direccionales scrolldown"
+                class="reg-or-log__arrows">
         </section>
         <!-- eventos -->
         <section class="events">
@@ -110,13 +127,14 @@
                 <h2 class="events__title">Eventos</h2>
             </div>
             <div class="events__list">
-                
+
             </div>
         </section>
     </main>
     <footer class="footer">
         <div class="footer__logo-uni">
-            <img src="../assets/img/Logo_UVM.png" alt="Logo UVM" class="footer__logo-uni-img"><span class="header__logo-lettering header__logo-lettering--footer">UNIVERSIDAD</span>
+            <img src="../assets/img/Logo_UVM.png" alt="Logo UVM" class="footer__logo-uni-img"><span
+                class="header__logo-lettering header__logo-lettering--footer">UNIVERSIDAD</span>
         </div>
         <div class="footer__links">
             <ul class="footer__events-list"><span class="footer__title">Eventos</span>
@@ -146,15 +164,21 @@
         </div>
         <div class="footer__follow-links">
             <div class="footer__logo-uni">
-                <img src="../assets/img/Logo_UVM.png" alt="Logo UVM" class="footer__logo-uni-img"><span class="header__logo-lettering header__logo-lettering--footer">Siguenos en</span>
+                <img src="../assets/img/Logo_UVM.png" alt="Logo UVM" class="footer__logo-uni-img"><span
+                    class="header__logo-lettering header__logo-lettering--footer">Siguenos en</span>
             </div>
             <ul class="footer__social-media-icons">
-                <li class="footer__social-element"><a href="" class="footer__social-element-link"><i class="fa-brands fa-facebook footer__sm-icon"></i></a></li>
-                <li class="footer__social-element"><a href="" class="footer__social-element-link"><i class="fa-brands fa-square-instagram footer__sm-icon"></i></a></li>
-                <li class="footer__social-element"><a href="" class="footer__social-element-link"><i class="fa-brands fa-youtube footer__sm-icon"></i></a></li>
-                <li class="footer__social-element"><a href="" class="footer__social-element-link"><i class="fa-brands fa-telegram footer__sm-icon"></i></a></li>
+                <li class="footer__social-element"><a href="" class="footer__social-element-link"><i
+                            class="fa-brands fa-facebook footer__sm-icon"></i></a></li>
+                <li class="footer__social-element"><a href="" class="footer__social-element-link"><i
+                            class="fa-brands fa-square-instagram footer__sm-icon"></i></a></li>
+                <li class="footer__social-element"><a href="" class="footer__social-element-link"><i
+                            class="fa-brands fa-youtube footer__sm-icon"></i></a></li>
+                <li class="footer__social-element"><a href="" class="footer__social-element-link"><i
+                            class="fa-brands fa-telegram footer__sm-icon"></i></a></li>
             </ul>
         </div>
     </footer>
 </body>
+
 </html>
