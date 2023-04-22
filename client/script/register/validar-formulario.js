@@ -96,41 +96,46 @@ submitButton.addEventListener('click', (event) => {
   }
 
   let recibir_notificaciones;
-    if(notificaciones){
-        recibir_notificaciones = "1";
-    } else {
-        recibir_notificaciones = "0";
-    }
+  if (notificaciones) {
+    recibir_notificaciones = "1";
+  } else {
+    recibir_notificaciones = "0";
+  }
 
-    const formData = {
-        nombre,
-        apellido,
-        genero,
-        cedula,
-        telefono,
-        email,
-        username,
-        password,
-        recibir_notificaciones: recibir_notificaciones,
-        url_avatar: url_iamgen,
-        rol
-    };
+  const formData = {
+    nombre,
+    apellido,
+    genero,
+    cedula,
+    telefono,
+    email,
+    username,
+    password,
+    recibir_notificaciones: recibir_notificaciones,
+    url_avatar: url_iamgen,
+    rol
+  };
 
-    //Conexión con la API
-    console.log(formData);
-    fetch('http://localhost:8080/usuarios/registro', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(formData)
+  //Conexión con la API
+  fetch('http://localhost:8080/usuarios/registro', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(formData)
+  })
+    .then(response => response.json())
+    .then(data => {
+      if (data.status == 200) {
+        alert(data.message);
+      } else if (data.status == 201) {
+        localStorage.setItem('token', data.token);
+        alert(data.message);
+        // Redirigir a la página de inicio de sesión
+        window.location.href = './login.html'
+      }
     })
-        .then(response => response.json())
-        .then(data => console.log(data))
-        .catch(error => console.error(error));
-        
-  // Redirigir a la página de inicio de sesión
-  window.location.href='./login.html'
+    .catch(error => console.error(error));
 });
 
 function validateEmail(email) {

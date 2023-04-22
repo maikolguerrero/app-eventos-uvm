@@ -90,6 +90,7 @@ span{
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
 /* ESPECIFICO */
 .form__input--date, .form__select{
