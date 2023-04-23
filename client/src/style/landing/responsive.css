@@ -1,0 +1,56 @@
+/* Para desk */
+@media screen and (min-width: 900px){
+    /* Landing */
+    .landing{
+        align-content: space-between;
+    }
+    .landing__background-img{
+        width: 100vw;  
+    }
+    .landing__text{
+        font-size: 3rem;
+    }
+    .landing__arrows--desk{
+        display: flex;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+    }
+    /* Sobre nosotros */
+    .about-us__info{
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+    }
+    .about-us__p{
+        width:  50%;
+        padding: 0 25px;
+        font-size: 1.8rem;
+    }
+    .about-us__img{
+        width: 50%;
+        align-self: center;
+        border-radius: 10px;
+    }
+    /* Registro */
+    .reg-or-log__btn{
+        width: 30%;
+    }
+    .reg-or-log__arrows{
+        left: 43.5%;
+    }
+    /* eventos */
+    .events__img{
+        width: 300px;
+        height: 200px;
+        object-fit: cover;
+        object-position: center;
+    }
+    .events__element{
+        font-size: 1.5rem;
+    }
+    .events__element--title{
+        font-size: 1.8rem;
+    }
+}
+/* luis-san */

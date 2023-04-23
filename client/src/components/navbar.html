@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style/navbar/navbar.css">
+    <link rel="stylesheet" href="../style/general.css">
+    <link rel="stylesheet" href="../style/navbar/responsive.css">
+    <link rel="stylesheet" href="../style/normalize.css">
+    <link rel="stylesheet" href="../style/landing/landing.css">
+    <link rel="stylesheet" href="../style/landing/responsive.css">
+    <link rel="stylesheet" href="../style/footer/footer.css">
+    <link rel="stylesheet" href="../style/footer/responsive.css">
+    <script src="../script/navbar/navbar-mobile.js" defer></script>
+    <script src="../script/landing-page/showEventInfo.js" defer></script>
+    <script src="https://kit.fontawesome.com/13f461d95d.js" crossorigin="anonymous"></script>
+    <title>#</title>
+</head>
+<body>
+    <header class="header">
+        <!--elementos visibles en el header-->
+        <div class="header__logo-div">
+            <img src="../assets/img/Logo_UVM.png" alt="Logo de la UVM" class="header__logo"><span class="header__logo-lettering">UNIVERSIDAD</span>
+        </div>
+        <ul class="header__options">
+            <li class="header__options"><a href="#" class="header__link">Inicio</a></li>
+            <li class="header__options"><a href="#" class="header__link">Eventos</a></li>
+            <li class="header__options"><a href="#" class="header__link">Sobre nosotros</a></li>
+        </ul>
+        <i class="fa-solid fa-magnifying-glass header__search-button"></i>
+        <div class="header__search-input-container">
+            <input type="text" class="header__search-input" placeholder="Busca un evento">
+        </div>
+        <div class="header__search-blur">
+
+        </div>
+        <div class="header__search-results">
+            <div class="header__search-result">
+                <div class="header__search-element">
+                    <i class="fa-solid fa-magnifying-glass header__search-result-icon"></i>
+                    <p class="header__search-result-txt">Un resultado de la búsqueda</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="header__menu">
+            <div class="header__desk-btn">
+                <button class="header__log-in">Iniciar sesión</button>
+                <button class="header__sign-up">Registrarse</button>
+            </div>
+            <div class="header__button">
+                <span class="header__lines"></span>
+                <span class="header__lines"></span>
+            </div> 
+        </div>
+        <!-- menú desplegable -->
+        <div class="menu">
+            <ul class="menu__options">
+                <li class="menu__option"><a href="#" class="menu__link">Inicio</a></li>
+                <li class="menu__option"><a href="#" class="menu__link">Eventos</a></li>
+                <li class="menu__option"><a href="#" class="menu__link">Sobre nosotros</a></li>
+                <div class="menu__desk-btn">
+                    <button class="menu__log-in">Iniciar sesión</button>
+                    <button class="menu__sign-up">Registrarse</button>
+                </div>
+            </ul>
+        </div>
+    </header>
+</body>
